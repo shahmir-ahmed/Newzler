@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/onboarding/on_boarding_view_2.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class OnBoardingView1 extends StatelessWidget {
@@ -74,7 +75,14 @@ class OnBoardingView1 extends StatelessWidget {
 
                 // get started button
                 PrimaryButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // close this screen and show on boarding screen 2
+                    // pop
+                    Navigator.pop(context);
+                    // push
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => OnBoardingView2()));
+                  },
                   buttonText: 'Get Started',
                   buttonWidth: 150.0,
                   buttonHeight: 53.0,
