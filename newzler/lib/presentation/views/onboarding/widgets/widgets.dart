@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 
+// common widgets for onbaording screens here
+
 class SocialLoginButton extends StatelessWidget {
   SocialLoginButton({required this.onPressed, required this.iconImage});
 
@@ -18,7 +20,7 @@ class SocialLoginButton extends StatelessWidget {
           shape: WidgetStatePropertyAll(RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
               side: BorderSide(color: Utils.lightGreyColor))),
-          minimumSize: WidgetStatePropertyAll(Size(100.0, 65.0)),
+          minimumSize: WidgetStatePropertyAll(Size(100.0, 60.0)),
           overlayColor: WidgetStatePropertyAll(Utils.whiteColor)),
       child: Image(image: iconImage, width: 30, height: 30),
     );

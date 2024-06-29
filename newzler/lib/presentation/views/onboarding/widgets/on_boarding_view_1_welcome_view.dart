@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/onboarding/on_boarding_view_2.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
-class OnBoardingView1 extends StatelessWidget {
-  const OnBoardingView1({super.key});
+class OnBoardingView1WelcomeView extends StatelessWidget {
+  OnBoardingView1WelcomeView({
+    required this.bannerImagePath,
+    required this.smallTextHeadline,
+    required this.largeTextHeadline,
+    required this.buttonText,
+    required this.onButtonClick,
+  });
+
+  // banner image path
+  String bannerImagePath;
+
+  // small text headline
+  String smallTextHeadline;
+
+  // large text headline
+  String largeTextHeadline;
+
+  // button text
+  String buttonText;
+
+  // on button click
+  VoidCallback onButtonClick;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +48,7 @@ class OnBoardingView1 extends StatelessWidget {
             padding: const EdgeInsets.only(top: 30.0),
             child: Image(
               image:
-                  AssetImage('assets/images/on-boarding-screen-1-banner.png'),
+                  AssetImage(bannerImagePath),
               width: 300.0,
               height: 300.0,
             ),
@@ -49,7 +69,7 @@ class OnBoardingView1 extends StatelessWidget {
               children: [
                 // small text headline
                 Text(
-                  'Discover Daily News',
+                  smallTextHeadline,
                   style: Utils.kAppPrimaryTextStyle.copyWith(
                       fontSize: 15.0,
                       color: Utils.kAppPrimaryColor,
@@ -63,7 +83,7 @@ class OnBoardingView1 extends StatelessWidget {
 
                 // large text tagline
                 Text(
-                  'We bring you closer to the news.',
+                  largeTextHeadline,
                   style: Utils.kAppPrimaryTextStyle
                       .copyWith(fontSize: 38.0, fontWeight: FontWeight.bold),
                 ),
@@ -73,17 +93,10 @@ class OnBoardingView1 extends StatelessWidget {
                   height: 8.0,
                 ),
 
-                // get started button
+                // button
                 PrimaryButton(
-                  onPressed: () {
-                    // close this screen and show on boarding screen 2
-                    // pop
-                    Navigator.pop(context);
-                    // push
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => OnBoardingView2()));
-                  },
-                  buttonText: 'Get Started',
+                  onPressed: onButtonClick,
+                  buttonText: buttonText,
                   buttonWidth: 150.0,
                   buttonHeight: 53.0,
                 )

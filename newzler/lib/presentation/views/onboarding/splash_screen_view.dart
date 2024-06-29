@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/onboarding/on_boarding_view_1.dart';
+import 'package:newzler/presentation/views/onboarding/on_boarding_view_2.dart';
+import 'package:newzler/presentation/views/onboarding/widgets/on_boarding_view_1_welcome_view.dart';
 
 class SplashScreenView extends StatelessWidget {
   const SplashScreenView({super.key});
@@ -13,7 +14,14 @@ class SplashScreenView extends StatelessWidget {
       Navigator.pop(context);
       // push
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => OnBoardingView1()));
+          .push(MaterialPageRoute(builder: (context) => OnBoardingView1WelcomeView(bannerImagePath: 'assets/images/on-boarding-screen-1-banner.png', smallTextHeadline: 'Discover Daily News', largeTextHeadline: 'We bring you closer to the news.', buttonText: 'Get Started', onButtonClick: () {
+                    // close this screen and show on boarding screen 2
+                    // pop
+                    Navigator.pop(context);
+                    // push
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => OnBoardingView2()));
+                  })));
     });
   }
 

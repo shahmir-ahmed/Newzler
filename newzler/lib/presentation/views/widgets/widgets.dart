@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 
+// whole app common widgets here
+
 class PrimaryButton extends StatelessWidget {
   PrimaryButton(
       {required this.onPressed,
