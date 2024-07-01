@@ -1,0 +1,256 @@
+import 'package:flutter/material.dart';
+import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/widgets/widgets.dart';
+
+class LoginView extends StatefulWidget {
+  LoginView({required this.changeScreenMethod, required this.backButton});
+
+  VoidCallback changeScreenMethod;
+  bool backButton;
+
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  bool _passwordVisible = false;
+
+  final _formKey = GlobalKey<FormState>();
+
+  // pop screen and push main screen
+  popAndPushMainScreen() {
+    // pop
+    // Navigator.pop(context);
+
+    // push
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _passwordVisible = false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: Utils.getActionAppBar(
+          widget.backButton
+              ? () {
+                  // on back pressed
+                  Navigator.pop(context);
+                }
+              : null, () {
+                  // close login and choose langauge screen and show home screen
+                  // pop pop
+                  // Navigator.pop(context);
+                  // Navigator.pop(context);
+
+                  // push
+                }),
+      backgroundColor: Utils.whiteColor,
+      body: _getBody(),
+    );
+  }
+
+  // get screen body
+  _getBody() {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // space
+            SizedBox(
+              height: 10.0,
+            ),
+
+            // login text
+            Text(
+              'Login',
+              style: Utils.kAppPrimaryTextStyle
+                  .copyWith(fontSize: 30.0, fontWeight: FontWeight.w800),
+            ),
+
+            // space
+            SizedBox(
+              height: 30.0,
+            ),
+
+            // instructions text
+            Text(
+              'Using your email or username and password',
+              style: Utils.kAppPrimaryTextStyle
+                  .copyWith(fontSize: 14.0, color: Utils.lightGreyColor2),
+            ),
+
+            // space
+            SizedBox(
+              height: 30.0,
+            ),
+
+            // form
+            Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // email/username label
+                    Text(
+                      'YOUR EMAIL/USERNAME',
+                      style: Utils.kAppPrimaryTextStyle.copyWith(
+                          fontSize: 12.0, fontWeight: FontWeight.w800),
+                    ),
+
+                    // space
+                    SizedBox(
+                      height: 10.0,
+                    ),
+
+                    // email form field
+                    TextFormField(
+                      validator: (value) {
+                        if (value!.trim().isEmpty) {
+                          return 'Email/username is required';
+                        }
+                        return null;
+                      },
+                      style: Utils.kAppPrimaryTextStyle,
+                    ),
+
+                    // space
+                    SizedBox(
+                      height: 45.0,
+                    ),
+
+                    // password label
+                    Text(
+                      'YOUR PASSWORD',
+                      style: Utils.kAppPrimaryTextStyle.copyWith(
+                          fontSize: 12.0, fontWeight: FontWeight.w800),
+                    ),
+
+                    // space
+                    SizedBox(
+                      height: 10.0,
+                    ),
+
+                    // password form field
+                    TextFormField(
+                      keyboardType: TextInputType.text,
+                      obscureText:
+                          !_passwordVisible, //This will obscure text dynamically
+                      decoration: InputDecoration(
+                        // Here is key idea
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            // Based on passwordVisible state choose the icon
+                            _passwordVisible
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                            color: Utils.lightGreyColor2,
+                            size: 25.0,
+                          ),
+                          onPressed: () {
+                            // Update the state i.e. toogle the state of passwordVisible variable
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                            });
+                          },
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.trim().isEmpty) {
+                          return 'Password is required';
+                        }
+                        return null;
+                      },
+                      style: Utils.kAppPrimaryTextStyle,
+                    ),
+
+                    // space
+                    SizedBox(
+                      height: 40.0,
+                    ),
+
+                    // login button
+                    PrimaryButton(
+                      onPressed: () {
+                        // if form is valid
+                        if (_formKey.currentState!.validate()) {
+                          // pop login screen and push main app screen
+                        }
+                      },
+                      buttonText: 'Login',
+                      buttonWidth: MediaQuery.of(context).size.width,
+                      buttonHeight: 65.0,
+                    )
+                  ],
+                )),
+            // space
+            SizedBox(
+              height: 100.0,
+            ),
+            // text button column
+            Column(
+              children: [
+                // forgot password text button
+                Text('Forgot your password?',
+                    style: Utils.kAppPrimaryTextStyle.copyWith(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w800,
+                    )),
+                // space
+                SizedBox(
+                  height: 20.0,
+                ),
+                // forgot username text button
+                Text(
+                  'Forgot your username?',
+                  style: Utils.kAppPrimaryTextStyle.copyWith(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                // space
+                SizedBox(
+                  height: 20.0,
+                ),
+                // signup button
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Don\'t have and account?',
+                      style: Utils.kAppPrimaryTextStyle.copyWith(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    // space
+                    SizedBox(
+                      width: 5.0,
+                    ),
+                    GestureDetector(
+                      onTap: widget.changeScreenMethod,
+                      child: Text(
+                        'Sign up',
+                        style: Utils.kAppPrimaryTextStyle.copyWith(
+                          color: Utils.kAppPrimaryColor,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

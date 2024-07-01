@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:newzler/presentation/views/onboarding/choose_language_view.dart';
 import 'package:newzler/presentation/views/onboarding/widgets/on_boarding_view_1_welcome_view.dart';
 import 'package:newzler/presentation/views/onboarding/widgets/widgets.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
@@ -52,8 +53,22 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
               buttonText: 'Let\'s Start',
               onButtonClick: () {
                 // pop screen and push choose news language screen
+                // pop
+                Navigator.pop(context);
+                // push
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ChooseLanguageView()));
               },
             )));
+  }
+
+  // pop screen and push choose language view
+  popAndPushChooseLanguageScreen() {
+    // pop
+    Navigator.pop(context);
+    // push
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => ChooseLanguageView()));
   }
 
   // body
@@ -71,19 +86,15 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
                   // text
                   GestureDetector(
                     onTap: () {
-                      // show on boarding screen 3
+                      // pop screen and push choose news language screen
+                      popAndPushChooseLanguageScreen();
                     },
-                    child: GestureDetector(
-                      onTap: () {
-                        // pop screen and push choose news language screen
-                      },
-                      child: Text(
-                        'Skip',
-                        style: Utils.kAppPrimaryTextStyle.copyWith(
-                            fontWeight: FontWeight.w800,
-                            fontSize: 14.0,
-                            color: Utils.lightGreyColor),
-                      ),
+                    child: Text(
+                      'Skip',
+                      style: Utils.kAppPrimaryTextStyle.copyWith(
+                          fontWeight: FontWeight.w800,
+                          fontSize: 14.0,
+                          color: Utils.lightGreyColor),
                     ),
                   )
                 ],
@@ -150,20 +161,21 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: imgList.asMap().entries.map((entry) {
                   return GestureDetector(
-                    onTap: () => _controller.animateToPage(entry.key),
-                    child: Container(
-                        // width: _current == entry.key ? 20.0 : 7.0,
-                        width: 7.0,
-                        height: 7.0,
-                        margin: EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 4.0),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: _current == entry.key
-                              ? Utils.kAppPrimaryColor
-                              : Utils.lightGreyColor,
-                        )),
-                  );
+                      onTap: () => _controller.animateToPage(entry.key),
+                      child: Container(
+                          width: _current == entry.key ? 23.0 : 7.0,
+                          // width: 7.0,
+                          height: 7.0,
+                          margin: EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 4.0),
+                          decoration: _current == entry.key
+                              ? BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  color: Utils.kAppPrimaryColor)
+                              : BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Utils.lightGreyColor,
+                                )));
                 }).toList(),
               ),
 
@@ -174,15 +186,13 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
 
               // login buttons
               // primary button with icon for email login
-              PrimaryButton(
+              GreyIconButton(
                 onPressed: () {
                   // pop screen and push welcome screen
                   popAndPushWelcomeScreen();
                 },
                 buttonText: 'Continue with Email',
                 icon: Icon(Icons.mail),
-                fontColor: Utils.whiteColor,
-                bgColor: Utils.kAppSecondaryColor,
                 buttonWidth: MediaQuery.of(context).size.width - 40,
                 buttonHeight: 60.0,
               ),

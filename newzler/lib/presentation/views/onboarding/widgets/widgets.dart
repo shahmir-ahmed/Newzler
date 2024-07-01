@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 
-// common widgets for onbaording screens here
+// common widgets for onboarding screens here
 
+// social login button (fb, google, twitter)
 class SocialLoginButton extends StatelessWidget {
   SocialLoginButton({required this.onPressed, required this.iconImage});
 

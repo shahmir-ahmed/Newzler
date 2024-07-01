@@ -7,7 +7,66 @@ class Utils {
   static Color kAppPrimaryColor = Color(0xff209CEE);
   static Color kAppSecondaryColor = Color(0xff27272E);
   static Color lightGreyColor = Color(0xffCCCCCC);
+  static Color lightGreyColor2 = Color(0xffCA8A8A8);
+  static Color lightGreyColor3 = Color.fromARGB(255, 114, 114, 114);
+  static Color greyColor = Color(0xff4A4A4A);
 
   // text style
-  static TextStyle kAppPrimaryTextStyle = GoogleFonts.raleway(fontSize: 17.0, fontWeight: FontWeight.w600);
+  static TextStyle kAppPrimaryTextStyle =
+      GoogleFonts.raleway(fontSize: 17.0, fontWeight: FontWeight.w600);
+
+  /*
+  // font sizes
+  static double headingTextFontSize = 41.0;
+  static double bodyText1FontSize = 24.0;
+  static double bodyText2FontSize = 17.0;
+  static double thirdTextFontSize = 10.0;
+  */
+
+  // action app bar method
+  // get screen app bar
+  static getActionAppBar(onBackPressed, onCrossPressed) {
+    // if on back pressed is null the not show back button (when choose language screen is skipped)
+    return onBackPressed != null
+        ? AppBar(
+            scrolledUnderElevation: 0.0,
+            leading: GestureDetector(
+                onTap: onBackPressed,
+                child: Icon(
+                  Icons.keyboard_arrow_left_rounded,
+                  size: 30.0,
+                )),
+            backgroundColor: Utils.whiteColor,
+            elevation: 0.0,
+            actions: [
+              // cross icon
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                    onTap: onCrossPressed,
+                    child: Icon(
+                      Icons.cancel_outlined,
+                      size: 25.0,
+                    )),
+              )
+            ],
+          )
+        : AppBar(
+            scrolledUnderElevation: 0.0,
+            backgroundColor: Utils.whiteColor,
+            elevation: 0.0,
+            actions: [
+              // cross icon
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                    onTap: onCrossPressed,
+                    child: Icon(
+                      Icons.cancel_outlined,
+                      size: 25.0,
+                    )),
+              )
+            ],
+          );
+  }
 }
