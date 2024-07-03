@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 import 'package:newzler/presentation/views/home/widgets/home_tab.dart';
+import 'package:newzler/presentation/views/trending/trending_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -15,10 +16,7 @@ class _HomeViewState extends State<HomeView> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeTab(),
-    SafeArea(
-      child: Text('Trending Screen',
-          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    ),
+    TrendingView(),
     SafeArea(
       child: Text('Video Screen',
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
@@ -53,17 +51,22 @@ class _HomeViewState extends State<HomeView> {
   // get bottom navigation bar
   _getBottomNavigationBar() {
     return Container(
-      height: 80.0,
-      decoration: BoxDecoration(
-        // borderRadius: BorderRadius.all(Radius.circular(30)),
-        boxShadow: [
-          BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
-        ],
-      ),
+      padding: EdgeInsets.only(bottom: 20.0),
+      height: 90.0,
+      // color: Colors.white.withOpacity(0.5),
+      // color: const Color.fromARGB(150, 255, 255, 255),
+      // color: Colors.transparent,
+      // width: MediaQuery.of(context).size.width - 100, // no effect
+      // decoration: BoxDecoration(color: Colors.red.withOpacity(0)
+      // borderRadius: BorderRadius.all(Radius.circular(30)),
+      // boxShadow: [
+      //   BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
+      // ],
+      // ),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(30.0)),
         child: BottomNavigationBar(
-          backgroundColor: Utils.whiteColor,
+          backgroundColor: Utils.lightGreyColor4,
           // fixedColor: Utils.whiteColor,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -119,9 +122,11 @@ class _HomeViewState extends State<HomeView> {
               // color: Colors.black,
               fontSize: 14.0,
               fontWeight: FontWeight.w800),
-          unselectedLabelStyle: Utils.kAppPrimaryTextStyle
-              .copyWith(color: Colors.black, fontSize: 14.0),
-          iconSize: 30,
+          unselectedLabelStyle: Utils.kAppPrimaryTextStyle.copyWith(
+              // color: Colors.black,
+              fontSize: 14.0),
+          selectedItemColor: Colors.black,
+          iconSize: 25,
           onTap: _onItemTapped,
           elevation: 0.0,
         ),

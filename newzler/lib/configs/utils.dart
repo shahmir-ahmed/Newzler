@@ -70,4 +70,19 @@ class Utils {
             ],
           );
   }
+
+// get primary app bar with title only in center
+static getKAppPrimaryAppBar(String title){
+  return AppBar(
+        title: Text(
+          title,
+          style: Utils.kAppPrimaryTextStyle.copyWith(fontSize: 20.0),
+        ),
+        centerTitle: true,
+        backgroundColor: Utils.whiteColor,
+        elevation: 0.0,
+        scrolledUnderElevation: 0.0,
+      );
 }
+}
+

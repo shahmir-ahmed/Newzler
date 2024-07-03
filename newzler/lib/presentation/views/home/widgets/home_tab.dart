@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/news_details/news_details_view.dart';
+import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -10,7 +12,6 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-  
   int _current = 0;
 
   final CarouselController _controller = CarouselController();
@@ -185,10 +186,20 @@ class _HomeTabState extends State<HomeTab> {
                                   height: 30.0,
                                 ),
                                 // news headline title
-                                Text(
-                                  carouselTextList[0]['news_title'] as String,
-                                  style: Utils.kAppPrimaryTextStyle
-                                      .copyWith(color: Utils.whiteColor),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              NewsDetailsView()),
+                                    );
+                                  },
+                                  child: Text(
+                                    carouselTextList[0]['news_title'] as String,
+                                    style: Utils.kAppPrimaryTextStyle
+                                        .copyWith(color: Utils.whiteColor),
+                                  ),
                                 ),
 
                                 // space
@@ -197,35 +208,10 @@ class _HomeTabState extends State<HomeTab> {
                                 ),
 
                                 // interaction options row
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    // like button
-                                    Icon(
-                                      Icons.thumb_up_outlined,
-                                      color: Utils.whiteColor,
-                                    ),
+                                NewsInteractionButtons(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween),
 
-                                    // bookmark button
-                                    Icon(
-                                      Icons.bookmark_border,
-                                      color: Utils.whiteColor,
-                                    ),
-
-                                    // copy link button
-                                    Icon(
-                                      Icons.copy,
-                                      color: Utils.whiteColor,
-                                    ),
-
-                                    // share button
-                                    Icon(
-                                      Icons.share,
-                                      color: Utils.whiteColor,
-                                    )
-                                  ],
-                                ),
                                 // space
                                 SizedBox(
                                   height: 30.0,
@@ -452,6 +438,7 @@ class _HomeTabState extends State<HomeTab> {
           ],
         ),
       ),
-    );;
+    );
+    ;
   }
 }
