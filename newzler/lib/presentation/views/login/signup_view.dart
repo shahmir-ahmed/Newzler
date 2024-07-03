@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/home/home_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class SignupView extends StatefulWidget {
@@ -38,12 +39,19 @@ class _SignupViewState extends State<SignupView> {
                   Navigator.pop(context);
                 }
               : null, () {
-        // close login and choose langauge screen and show home screen
-        // pop pop
-        // Navigator.pop(context);
-        // Navigator.pop(context);
+        if (widget.backButton) {
+          // close login and choose langauge screen and show home screen
+          // pop pop
+          Navigator.pop(context);
+          Navigator.pop(context);
+        } else {
+          // close only signup screen
+          Navigator.pop(context);
+        }
 
         // push
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => HomeView()));
       }),
       backgroundColor: Utils.whiteColor,
       body: _getBody(),
@@ -335,7 +343,19 @@ class _SignupViewState extends State<SignupView> {
                             }
                             // if form is valid
                             if (_formKey.currentState!.validate()) {
-                              // pop login screen and push main app screen
+                              if (widget.backButton) {
+                                // close signup and choose langauge screen and show home screen
+                                // pop pop
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+                              } else {
+                                // close only signup screen
+                                Navigator.pop(context);
+                              }
+
+                              // push home screen
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => HomeView()));
                             }
                           },
                           buttonText: 'Sign Up',

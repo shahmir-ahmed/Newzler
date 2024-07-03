@@ -5,7 +5,7 @@ import 'package:newzler/presentation/views/login/signup_view.dart';
 class AuthenticationWrapper extends StatefulWidget {
   AuthenticationWrapper({required this.backButton});
 
-  bool backButton;
+  bool backButton; // back button present or not
 
   @override
   State<AuthenticationWrapper> createState() => _AuthenticationWrapperState();

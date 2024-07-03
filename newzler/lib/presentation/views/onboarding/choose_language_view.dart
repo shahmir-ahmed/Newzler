@@ -128,6 +128,7 @@ class _ChooseLanguageViewState extends State<ChooseLanguageView> {
                     // This is called when the user selects an item.
                     setState(() {
                       dropdownValue = value!;
+                      // if language option is not selected again then remove error
                       if (dropdownValue != languagesList[0]) {
                         showChooseLanguageError = false;
                       }

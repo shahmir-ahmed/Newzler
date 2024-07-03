@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Newzler',
       home: const SplashScreenView(),
+      // home: const HomeView(),
     );
   }
 }

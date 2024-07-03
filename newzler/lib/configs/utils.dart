@@ -6,9 +6,10 @@ class Utils {
   static Color whiteColor = Colors.white;
   static Color kAppPrimaryColor = Color(0xff209CEE);
   static Color kAppSecondaryColor = Color(0xff27272E);
-  static Color lightGreyColor = Color(0xffCCCCCC);
+  static Color lightGreyColor = Color.fromARGB(255, 114, 114, 114);
   static Color lightGreyColor2 = Color(0xffCA8A8A8);
-  static Color lightGreyColor3 = Color.fromARGB(255, 114, 114, 114);
+  static Color lightGreyColor3 = Color(0xffCCCCCC);
+  static Color lightGreyColor4 = Color(0xffF2F2F2);
   static Color greyColor = Color(0xff4A4A4A);
 
   // text style

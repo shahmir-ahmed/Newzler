@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/forgot_username_password/widgets/forgot_username_password_view.dart';
+import 'package:newzler/presentation/views/home/home_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class LoginView extends StatefulWidget {
@@ -42,13 +44,20 @@ class _LoginViewState extends State<LoginView> {
                   Navigator.pop(context);
                 }
               : null, () {
-                  // close login and choose langauge screen and show home screen
-                  // pop pop
-                  // Navigator.pop(context);
-                  // Navigator.pop(context);
+        if (widget.backButton) {
+          // close login and choose langauge screen and show home screen
+          // pop pop
+          Navigator.pop(context);
+          Navigator.pop(context);
+        } else {
+          // clos only login screen
+          Navigator.pop(context);
+        }
 
-                  // push
-                }),
+        // push
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => HomeView()));
+      }),
       backgroundColor: Utils.whiteColor,
       body: _getBody(),
     );
@@ -180,7 +189,19 @@ class _LoginViewState extends State<LoginView> {
                       onPressed: () {
                         // if form is valid
                         if (_formKey.currentState!.validate()) {
-                          // pop login screen and push main app screen
+                          if (widget.backButton) {
+                            // close login and choose langauge screen and show home screen
+                            // pop pop
+                            Navigator.pop(context);
+                            Navigator.pop(context);
+                          } else {
+                            // close only login screen
+                            Navigator.pop(context);
+                          }
+
+                          // push home screen
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomeView()));
                         }
                       },
                       buttonText: 'Login',
@@ -197,21 +218,37 @@ class _LoginViewState extends State<LoginView> {
             Column(
               children: [
                 // forgot password text button
-                Text('Forgot your password?',
-                    style: Utils.kAppPrimaryTextStyle.copyWith(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w800,
-                    )),
+                GestureDetector(
+                  onTap: () {
+                    // show forgot password screen
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ForgotUsernamePasswordView(
+                            forUsernameScreen: false)));
+                  },
+                  child: Text('Forgot your password?',
+                      style: Utils.kAppPrimaryTextStyle.copyWith(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w800,
+                      )),
+                ),
                 // space
                 SizedBox(
                   height: 20.0,
                 ),
                 // forgot username text button
-                Text(
-                  'Forgot your username?',
-                  style: Utils.kAppPrimaryTextStyle.copyWith(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w800,
+                GestureDetector(
+                  onTap: () {
+                    // show forgot username screen
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ForgotUsernamePasswordView(
+                            forUsernameScreen: true)));
+                  },
+                  child: Text(
+                    'Forgot your username?',
+                    style: Utils.kAppPrimaryTextStyle.copyWith(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
                 // space

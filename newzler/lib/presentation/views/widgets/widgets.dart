@@ -32,7 +32,7 @@ class PrimaryButton extends StatelessWidget {
               ),
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Utils.kAppPrimaryColor),
-                elevation: WidgetStatePropertyAll(0.0),
+                elevation: WidgetStatePropertyAll(3.0),
                 foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
                 // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
               ),
@@ -48,7 +48,7 @@ class PrimaryButton extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Utils.kAppPrimaryColor),
                 shadowColor: WidgetStatePropertyAll(Utils.kAppPrimaryColor),
-                elevation: WidgetStatePropertyAll(5.0),
+                elevation: WidgetStatePropertyAll(3.0),
                 foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
                 // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
               ),
