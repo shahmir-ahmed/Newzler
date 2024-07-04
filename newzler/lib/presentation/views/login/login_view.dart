@@ -37,8 +37,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.getActionAppBar(
-          widget.backButton
+      appBar: Utils.getActionAppBar(widget.backButton
               ? () {
                   // on back pressed
                   Navigator.pop(context);
@@ -57,7 +56,7 @@ class _LoginViewState extends State<LoginView> {
         // push
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => HomeView()));
-      }),
+      }, null, null, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(),
     );

@@ -1,8 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/home/widgets/home_tab.dart';
-import 'package:newzler/presentation/views/trending/trending_view.dart';
+import 'package:newzler/presentation/views/home/widgets/home_tab_view.dart';
+import 'package:newzler/presentation/views/trending/trending_tab_view.dart';
+import 'package:newzler/presentation/views/video/video_tab_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -14,13 +15,10 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   // bottom navigation bar att.
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     HomeTab(),
-    TrendingView(),
-    SafeArea(
-      child: Text('Video Screen',
-          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    ),
+    TrendingTabView(),
+    VideoTabView(),
     SafeArea(
       child: Text('Search Screen',
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
@@ -83,14 +81,24 @@ class _HomeViewState extends State<HomeView> {
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
-              icon: Icon(
-                Icons.trending_up_rounded,
-                color: Colors.black,
+              activeIcon: Image(
+                image: AssetImage('assets/images/trending-bold.png'),
+                width: 24.0,
+                height: 24.0,
+              ),
+              icon: Image(
+                image: AssetImage('assets/images/trending-light.png'),
+                width: 16.0,
+                height: 24.0,
               ),
               label: 'Trending',
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
+              activeIcon: Icon(
+                Icons.play_circle_filled_sharp,
+                color: Colors.black,
+              ),
               icon: Icon(
                 Icons.play_circle_outline,
                 color: Colors.black,
@@ -99,6 +107,11 @@ class _HomeViewState extends State<HomeView> {
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
+              activeIcon: Image(
+                image: AssetImage('assets/images/search-filled.png'),
+                width: 22.0,
+                height: 24.0,
+              ),
               icon: Icon(
                 Icons.search_sharp,
                 color: Colors.black,
@@ -107,9 +120,15 @@ class _HomeViewState extends State<HomeView> {
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
-              icon: Icon(
-                Icons.more_horiz,
-                color: Colors.black,
+              activeIcon: Image(
+                image: AssetImage('assets/images/more-filled.png'),
+                width: 24.0,
+                height: 26.0,
+              ),
+              icon: Image(
+                image: AssetImage('assets/images/more-empty.png'),
+                width: 22.0,
+                height: 26.0,
               ),
               label: 'More',
             ),
@@ -126,7 +145,7 @@ class _HomeViewState extends State<HomeView> {
               // color: Colors.black,
               fontSize: 14.0),
           selectedItemColor: Colors.black,
-          iconSize: 25,
+          // iconSize: 25,
           onTap: _onItemTapped,
           elevation: 0.0,
         ),

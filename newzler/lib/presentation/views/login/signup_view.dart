@@ -52,7 +52,7 @@ class _SignupViewState extends State<SignupView> {
         // push
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => HomeView()));
-      }),
+      }, null, null, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(),
     );

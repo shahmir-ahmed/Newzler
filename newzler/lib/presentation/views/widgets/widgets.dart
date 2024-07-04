@@ -645,27 +645,85 @@ class NewsInteractionButtons extends StatelessWidget {
 
 // news card
 class NewsCard extends StatelessWidget {
-  NewsCard({required this.newsImagePath});
+  NewsCard(
+      {required this.newsImagePath,
+      this.onImageClick,
+      this.videoNews,
+      this.videoTime,
+      this.showInteractionButtons = true,
+      this.showTimeNewsChannel = true});
 
   String newsImagePath;
+  bool? videoNews; // video news or not i.e. null
+  VoidCallback? onImageClick;
+  String? videoTime;
+  bool showInteractionButtons;
+  bool showTimeNewsChannel;
 
   @override
   Widget build(BuildContext context) {
     // card in column
     return Container(
       // color: Colors.pink,
-      height: 400.0,
+      height: showInteractionButtons ? 400.0 : 340.0,
       child: Column(
         // mainAxisSize: MainAxisSize.min,
         children: [
           // news image
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 200.0,
-            child: Image(
-              fit: BoxFit.cover,
-              image: AssetImage(newsImagePath),
-            ),
+          GestureDetector(
+            onTap:
+                onImageClick, // if null then nothing will happen if present then the the operation passed will run
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 200.0,
+                // if null means false so show news image only
+                child: videoNews == null
+                    ? Image(
+                        fit: BoxFit.cover,
+                        image: AssetImage(newsImagePath),
+                      )
+                    // video news
+                    // if true then show play button over news image
+                    : Stack(
+                        fit: StackFit.expand,
+                        alignment: Alignment.center,
+                        children: [
+                            // image
+                            Image(
+                              fit: BoxFit.cover,
+                              image: AssetImage(newsImagePath),
+                            ),
+
+                            // play icon
+                            Icon(
+                              Icons.play_arrow_rounded,
+                              size: 80.0,
+                              color: Utils.whiteColor,
+                            ),
+
+                            // if video time is present then show video time otherwii=se if null then show empty box
+                            videoTime != null
+                                ? Align(
+                                    alignment: AlignmentDirectional.bottomEnd,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Utils.greyColor2,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10.0))),
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 5.0, horizontal: 10.0),
+                                      margin: EdgeInsets.all(10.0),
+                                      child: Text(
+                                        videoTime as String,
+                                        style: TextStyle(
+                                            // fontFamily: 'Inter',
+                                            color: Utils.whiteColor,
+                                            fontWeight: FontWeight.w800),
+                                      ),
+                                    ),
+                                  )
+                                : SizedBox()
+                          ])),
           ),
 
           // space
@@ -676,6 +734,7 @@ class NewsCard extends StatelessWidget {
           // news details row
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // news channel logo
               CircleAvatar(
@@ -698,21 +757,28 @@ class NewsCard extends StatelessWidget {
                     children: [
                       // title
                       Text(
-                        'A protester carries the Confederate flag after breaching US Captical security',
-                        style:
-                            Utils.kAppPrimaryTextStyle.copyWith(fontSize: 15.0),
-                      ),
-
-                      // space
-                      SizedBox(
-                        height: 5.0,
-                      ),
-
-                      Text(
-                        '5 hours ago | News18',
+                        'A protester carries the Confederate flag after breaching US Capital security',
                         style: Utils.kAppPrimaryTextStyle.copyWith(
-                            color: Utils.lightGreyColor2, fontSize: 10.0),
-                      )
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w800,
+                            color: Utils.greyColor3),
+                      ),
+
+                      showTimeNewsChannel
+                          ?
+                          // space
+                          SizedBox(
+                              height: 5.0,
+                            )
+                          : SizedBox(),
+
+                      showTimeNewsChannel
+                          ? Text(
+                              '5 hours ago | News18',
+                              style: Utils.kAppPrimaryTextStyle.copyWith(
+                                  color: Utils.lightGreyColor2, fontSize: 10.0),
+                            )
+                          : SizedBox()
                     ],
                   ),
                 ),
@@ -720,17 +786,22 @@ class NewsCard extends StatelessWidget {
             ],
           ),
 
-          // space
-          SizedBox(
-            height: 20.0,
-          ),
+          showInteractionButtons
+              ?
+              // space
+              SizedBox(
+                  height: 20.0,
+                )
+              : SizedBox(),
 
           // news interaction buttons
-          NewsInteractionButtons(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            bookmarked: true,
-            blackColoredIcons: true,
-          )
+          showInteractionButtons
+              ? NewsInteractionButtons(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  bookmarked: true,
+                  blackColoredIcons: true,
+                )
+              : SizedBox()
         ],
       ),
     );

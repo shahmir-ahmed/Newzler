@@ -30,7 +30,7 @@ class _ForgotUsernamePasswordViewState
         // Navigator.pop(context);
 
         // push
-      }),
+      }, null, null, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(),
     );
