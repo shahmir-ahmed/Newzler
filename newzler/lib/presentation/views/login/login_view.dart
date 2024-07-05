@@ -184,7 +184,8 @@ class _LoginViewState extends State<LoginView> {
                     ),
 
                     // login button
-                    PrimaryButton(
+                    CustomButton(
+                      primaryButton: true,
                       onPressed: () {
                         // if form is valid
                         if (_formKey.currentState!.validate()) {

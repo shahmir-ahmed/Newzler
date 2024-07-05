@@ -3,106 +3,107 @@ import 'package:newzler/configs/utils.dart';
 
 // whole app common widgets here
 
-class PrimaryButton extends StatelessWidget {
-  PrimaryButton(
+class CustomButton extends StatelessWidget {
+  CustomButton(
       {required this.onPressed,
-      required this.buttonText,
+      this.buttonText,
+      this.child,
       this.buttonWidth,
       this.buttonHeight,
-      this.icon});
+      this.icon,
+      this.primaryButton,
+      this.secondaryButton,
+      this.backgroundColor});
 
   VoidCallback onPressed;
-  String buttonText;
+  String? buttonText;
+  Widget? child;
   double? buttonWidth;
   double? buttonHeight;
-  Icon? icon;
+  Widget? icon;
+  bool? primaryButton;
+  bool? secondaryButton;
+  Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: buttonWidth != null ? buttonWidth! : 88.0,
       height: buttonHeight != null ? buttonHeight! : 36.0,
+      // icon button
       child: icon != null
           ? ElevatedButton.icon(
               onPressed: onPressed,
+              // currently there is no req of using child widget instead of text with icon so keeping it like this
               label: Text(
-                buttonText,
+                buttonText!, // text required
                 style: Utils.kAppPrimaryTextStyle
                     .copyWith(fontWeight: FontWeight.bold),
               ),
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Utils.kAppPrimaryColor),
-                elevation: WidgetStatePropertyAll(3.0),
+                backgroundColor: WidgetStatePropertyAll(
+                    // if bg color present then use that
+                    backgroundColor ?? Utils.kAppPrimaryColor),
                 foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
+                // if bg color present then set no elevation
+                elevation: backgroundColor == null
+                    ? WidgetStatePropertyAll(3.0)
+                    : WidgetStatePropertyAll(0.0),
                 // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
               ),
               icon: icon,
             )
+          // simple button
           : ElevatedButton(
               onPressed: onPressed,
-              child: Text(
-                buttonText,
-                style: Utils.kAppPrimaryTextStyle
-                    .copyWith(fontWeight: FontWeight.bold),
-              ),
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Utils.kAppPrimaryColor),
-                shadowColor: WidgetStatePropertyAll(Utils.kAppPrimaryColor),
-                elevation: WidgetStatePropertyAll(3.0),
-                foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
-                // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
-              ),
+              // blue bg and white text color = primary button
+              style: primaryButton != null
+                  ? ButtonStyle(
+                      backgroundColor:
+                          WidgetStatePropertyAll(Utils.kAppPrimaryColor),
+                      shadowColor:
+                          WidgetStatePropertyAll(Utils.kAppPrimaryColor),
+                      foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
+                      elevation: WidgetStatePropertyAll(3.0),
+                      // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
+                    )
+                  // white bg and grey text color = secondary button
+                  : secondaryButton != null
+                      ? ButtonStyle(
+                          backgroundColor:
+                              WidgetStatePropertyAll(Utils.whiteColor),
+                          foregroundColor:
+                              WidgetStatePropertyAll(Utils.greyColor),
+                          side: WidgetStatePropertyAll(
+                            BorderSide(color: Utils.lightGreyColor2),
+                          ),
+                          elevation: WidgetStatePropertyAll(0.0))
+                      : null,
+              // if child present the use the child widget otherwise text is must
+              child: child ??
+                  Text(
+                    buttonText!,
+                    style: secondaryButton != null
+                        ? Utils.kAppPrimaryTextStyle
+                            .copyWith(fontWeight: FontWeight.w800)
+                        : primaryButton != null
+                            ? Utils.kAppPrimaryTextStyle
+                            : null,
+                  ),
             ),
     );
   }
 }
 
-// grey icon button for 'continue with email' button
-class GreyIconButton extends StatelessWidget {
-  GreyIconButton({
+/*
+// secondary button with white bg, grey text color
+class SecondaryButton extends StatelessWidget {
+  SecondaryButton({
     required this.onPressed,
     required this.buttonText,
-    required this.icon,
     this.buttonWidth,
     this.buttonHeight,
   });
-
-  VoidCallback onPressed;
-  String buttonText;
-  Icon? icon;
-  double? buttonWidth;
-  double? buttonHeight;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-        width: buttonWidth != null ? buttonWidth! : 88.0,
-        height: buttonHeight != null ? buttonHeight! : 36.0,
-        child: ElevatedButton.icon(
-          onPressed: onPressed,
-          label: Text(
-            buttonText,
-            style: Utils.kAppPrimaryTextStyle
-                .copyWith(fontWeight: FontWeight.bold),
-          ),
-          style: ButtonStyle(
-            backgroundColor: WidgetStatePropertyAll(Utils.kAppSecondaryColor),
-            elevation: WidgetStatePropertyAll(0.0),
-            foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
-            // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
-          ),
-          icon: icon,
-        ));
-  }
-}
-
-// secondary button with white bg, grey text color
-class SecondaryButton extends StatelessWidget {
-  SecondaryButton(
-      {required this.onPressed,
-      required this.buttonText,
-      this.buttonWidth,
-      this.buttonHeight});
 
   VoidCallback onPressed;
   String buttonText;
@@ -134,6 +135,48 @@ class SecondaryButton extends StatelessWidget {
     );
   }
 }
+*/
+
+/*
+// grey colored button with icon, for 'continue with email' button in onboarding screen 2
+class GreyIconButton extends StatelessWidget {
+  GreyIconButton({
+    required this.onPressed,
+    required this.buttonText,
+    required this.icon,
+    this.buttonWidth,
+    this.buttonHeight,
+  });
+
+  VoidCallback onPressed;
+  String buttonText;
+  Icon? icon;
+  double? buttonWidth;
+  double? buttonHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        width: buttonWidth != null ? buttonWidth! : 88.0,
+        height: buttonHeight != null ? buttonHeight! : 36.0,
+        child: ElevatedButton.icon(
+          onPressed: onPressed,
+          label: Text(
+            buttonText,
+            style: Utils.kAppPrimaryTextStyle
+                .copyWith(fontWeight: FontWeight.bold),
+          ),
+          style: ButtonStyle(
+            elevation: WidgetStatePropertyAll(0.0),
+            backgroundColor: WidgetStatePropertyAll(Utils.kAppSecondaryColor),
+            foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
+            // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
+          ),
+          icon: icon,
+        ));
+  }
+}
+*/
 
 // news interaction buttons
 class NewsInteractionButtons extends StatelessWidget {

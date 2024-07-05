@@ -35,7 +35,8 @@ class TrendingTabView extends StatelessWidget {
             ),
 
             // view more button
-            PrimaryButton(
+            CustomButton(
+              primaryButton: true,
               onPressed: () {
                 // push full coverage screen
                 Navigator.push(

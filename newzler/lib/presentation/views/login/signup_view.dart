@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 import 'package:newzler/presentation/views/home/home_view.dart';
+import 'package:newzler/presentation/views/login/verify_email_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class SignupView extends StatefulWidget {
@@ -21,6 +22,8 @@ class _SignupViewState extends State<SignupView> {
   bool checked = false;
 
   bool showCheckBoxError = false;
+
+  String userEmail = '';
 
   @override
   void initState() {
@@ -111,9 +114,9 @@ class _SignupViewState extends State<SignupView> {
                                   Text(
                                     'YOUR FIRST NAME',
                                     style: Utils.kAppPrimaryTextStyle.copyWith(
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.w800,
-                                        color: Utils.lightGreyColor3),
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w800,
+                                    ),
                                   ),
 
                                   // space
@@ -123,6 +126,8 @@ class _SignupViewState extends State<SignupView> {
 
                                   // first name form field
                                   TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
                                     validator: (value) {
                                       if (value!.trim().isEmpty) {
                                         return 'First name is required';
@@ -148,9 +153,9 @@ class _SignupViewState extends State<SignupView> {
                                   Text(
                                     'YOUR LAST NAME',
                                     style: Utils.kAppPrimaryTextStyle.copyWith(
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.w800,
-                                        color: Utils.lightGreyColor3),
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w800,
+                                    ),
                                   ),
 
                                   // space
@@ -160,6 +165,8 @@ class _SignupViewState extends State<SignupView> {
 
                                   // last name form field
                                   TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
                                     validator: (value) {
                                       if (value!.trim().isEmpty) {
                                         return 'Last name is required';
@@ -183,9 +190,9 @@ class _SignupViewState extends State<SignupView> {
                         Text(
                           'CHOOSE YOUR USERNAME',
                           style: Utils.kAppPrimaryTextStyle.copyWith(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w800,
-                              color: Utils.lightGreyColor3),
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
 
                         // space
@@ -222,6 +229,12 @@ class _SignupViewState extends State<SignupView> {
 
                         // email form field
                         TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          onChanged: (value) {
+                            setState(() {
+                              userEmail = value;
+                            });
+                          },
                           validator: (value) {
                             if (value!.trim().isEmpty) {
                               return 'Email is required';
@@ -329,7 +342,8 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // signup button
-                        PrimaryButton(
+                        CustomButton(
+                          primaryButton: true,
                           onPressed: () {
                             // if check box is not checked
                             if (!checked) {
@@ -343,6 +357,7 @@ class _SignupViewState extends State<SignupView> {
                             }
                             // if form is valid
                             if (_formKey.currentState!.validate()) {
+                              /*
                               if (widget.backButton) {
                                 // close signup and choose langauge screen and show home screen
                                 // pop pop
@@ -352,10 +367,15 @@ class _SignupViewState extends State<SignupView> {
                                 // close only signup screen
                                 Navigator.pop(context);
                               }
+                              */
 
                               // push home screen
+                              // Navigator.of(context).push(MaterialPageRoute(
+                              //     builder: (context) => HomeView()));
+                              // push verify email screen
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => HomeView()));
+                                  builder: (context) =>
+                                      VerifyEmailView(email: userEmail, backButton: widget.backButton)));
                             }
                           },
                           buttonText: 'Sign Up',

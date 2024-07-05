@@ -173,7 +173,8 @@ class _ChooseLanguageViewState extends State<ChooseLanguageView> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 // skip button
-                SecondaryButton(
+                CustomButton(
+                  secondaryButton: true,
                   onPressed: () {
                     popAndPushLoginScreen();
                   },
@@ -183,7 +184,8 @@ class _ChooseLanguageViewState extends State<ChooseLanguageView> {
                 ),
 
                 // done button
-                PrimaryButton(
+                CustomButton(
+                  primaryButton: true,
                   onPressed: () {
                     // if language not selected
                     if (dropdownValue == languagesList[0]) {

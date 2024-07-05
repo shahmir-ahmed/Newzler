@@ -42,7 +42,7 @@ class Utils {
               child: Icon(
                 Icons.keyboard_arrow_left_rounded,
                 size: backButtonSize ?? 30.0,
-                color: backButtonColor ?? Utils.whiteColor,
+                color: backButtonColor ?? Colors.black,
               )),
       // show the bg color otherwise if background color is null then show white color
       backgroundColor: backgroundColor ?? Utils.whiteColor,
@@ -76,6 +76,52 @@ class Utils {
       backgroundColor: Utils.whiteColor,
       elevation: 0.0,
       scrolledUnderElevation: 0.0,
+    );
+  }
+
+// get search app bar for search screen
+  static getKAppSearchAppBar() {
+    return AppBar(
+      toolbarHeight: 90.0,
+      backgroundColor: Utils.whiteColor,
+      elevation: 0.0,
+      scrolledUnderElevation: 0.0,
+      title: Container(
+        height: 70,
+        // color: Colors.amber,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              height: 55.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                color: Utils.lightGreyColor4,
+              ),
+              child: Center(
+                child: TextField(
+                  // controller: _searchController,
+                  style: Utils.kAppPrimaryTextStyle,
+                  // cursorColor: Colors.white,
+                  decoration: InputDecoration(
+                      hintText: 'Search',
+                      hintStyle: Utils.kAppPrimaryTextStyle
+                          .copyWith(color: Utils.lightGreyColor),
+                      border: InputBorder.none,
+                      fillColor: Utils.greyColor,
+                      prefixIcon: Icon(
+                        Icons.search,
+                        size: 35.0,
+                      )),
+                  onChanged: (value) {
+                    // Perform search functionality here
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

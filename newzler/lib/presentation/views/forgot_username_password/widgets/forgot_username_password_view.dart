@@ -107,7 +107,8 @@ class _ForgotUsernamePasswordViewState
                         ),
 
                         // recover button
-                        PrimaryButton(
+                        CustomButton(
+                          primaryButton: true,
                           onPressed: () {
                             // if form is valid
                             if (_formKey.currentState!.validate()) {

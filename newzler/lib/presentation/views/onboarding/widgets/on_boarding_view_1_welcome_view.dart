@@ -94,7 +94,8 @@ class OnBoardingView1WelcomeView extends StatelessWidget {
                 ),
 
                 // button
-                PrimaryButton(
+                CustomButton(
+                  primaryButton: true,
                   onPressed: onButtonClick,
                   buttonText: buttonText,
                   buttonWidth: 150.0,

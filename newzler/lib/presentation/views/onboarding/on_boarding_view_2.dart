@@ -186,7 +186,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
 
               // login buttons
               // primary button with icon for email login
-              GreyIconButton(
+              CustomButton(
                 onPressed: () {
                   // pop screen and push welcome screen
                   popAndPushWelcomeScreen();
@@ -195,6 +195,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
                 icon: Icon(Icons.mail),
                 buttonWidth: MediaQuery.of(context).size.width - 40,
                 buttonHeight: 60.0,
+                backgroundColor: Utils.kAppSecondaryColor
               ),
 
               // space

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 import 'package:newzler/presentation/views/home/widgets/home_tab_view.dart';
+import 'package:newzler/presentation/views/search/search_view.dart';
 import 'package:newzler/presentation/views/trending/trending_tab_view.dart';
 import 'package:newzler/presentation/views/video/video_tab_view.dart';
 
@@ -19,10 +20,7 @@ class _HomeViewState extends State<HomeView> {
     HomeTab(),
     TrendingTabView(),
     VideoTabView(),
-    SafeArea(
-      child: Text('Search Screen',
-          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    ),
+    SearchView(),
     SafeArea(
       child: Text('More Screen',
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
