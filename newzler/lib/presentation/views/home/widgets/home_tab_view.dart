@@ -209,8 +209,10 @@ class _HomeTabState extends State<HomeTab> {
 
                                 // interaction options row
                                 NewsInteractionButtons(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween),
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  whiteColoredIcons: true,
+                                ),
 
                                 // space
                                 SizedBox(

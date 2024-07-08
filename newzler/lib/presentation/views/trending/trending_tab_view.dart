@@ -9,7 +9,7 @@ class TrendingTabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.getKAppPrimaryAppBar('Trending'),
+      appBar: Utils.getKAppPrimaryAppBar('Trending', true),
       backgroundColor: Utils.whiteColor,
       body: _getBody(context),
     );

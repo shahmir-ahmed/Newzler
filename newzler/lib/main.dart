@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Newzler',
-      home: const SplashScreenView(),
-      // home: const HomeView(),
+      // home: const SplashScreenView(),
+      home: const HomeView(),
       // home: SignupView(changeScreenMethod: (){}, backButton: false,),
     );
   }

@@ -11,6 +11,7 @@ class Utils {
   static Color lightGreyColor2 = Color(0xffCA8A8A8);
   static Color lightGreyColor3 = Color(0xffCCCCCC);
   static Color lightGreyColor4 = Color(0xffF2F2F2);
+  static Color lightBlueColor = Color(0xffF7F8FA);
   static Color greyColor = Color(0xff4A4A4A);
   static Color greyColor2 = Color(0xff707176);
   static Color greyColor3 = Color(0xff2C2C2C);
@@ -66,13 +67,13 @@ class Utils {
   }
 
 // get primary app bar with title only in center
-  static getKAppPrimaryAppBar(String title) {
+  static getKAppPrimaryAppBar(String title, bool centerTitle) {
     return AppBar(
       title: Text(
         title,
         style: Utils.kAppPrimaryTextStyle.copyWith(fontSize: 20.0),
       ),
-      centerTitle: true,
+      centerTitle: centerTitle,
       backgroundColor: Utils.whiteColor,
       elevation: 0.0,
       scrolledUnderElevation: 0.0,
@@ -80,7 +81,7 @@ class Utils {
   }
 
 // get search app bar for search screen
-  static getKAppSearchAppBar() {
+  static getKAppSearchAppBar(onSubmitted) {
     return AppBar(
       toolbarHeight: 90.0,
       backgroundColor: Utils.whiteColor,
@@ -113,6 +114,9 @@ class Utils {
                         Icons.search,
                         size: 35.0,
                       )),
+                  onSubmitted: (value) {
+                    onSubmitted();
+                  },
                   onChanged: (value) {
                     // Perform search functionality here
                   },

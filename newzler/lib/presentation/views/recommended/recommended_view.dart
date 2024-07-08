@@ -9,7 +9,7 @@ class RecommendedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.getKAppPrimaryAppBar('Video'),
+      appBar: Utils.getKAppPrimaryAppBar('Video', true),
       backgroundColor: Utils.whiteColor,
       body: _getBody(context),
     );
@@ -42,14 +42,14 @@ class RecommendedView extends StatelessWidget {
                 children: [1, 2, 3, 4].map((i) {
                   return NewsCard(
                       newsImagePath: 'assets/images/video-news-$i.png',
-                      onImageClick: () {
-                        // push full coverage screen
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => VideoPlayView()),
-                        );
-                      },
+                      // onImageClick: () {
+                      //   // push full coverage screen
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => VideoPlayView()),
+                      //   );
+                      // },
                       videoNews: true,
                       videoTime: '$i:00',
                       showInteractionButtons: false,

@@ -139,8 +139,10 @@ class NewsDetailsView extends StatelessWidget {
 
               // interaction options
               NewsInteractionButtons(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround),
-                  
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                whiteColoredIcons: true, // white colored button
+              ),
+
               // space
               SizedBox(
                 height: 30.0,

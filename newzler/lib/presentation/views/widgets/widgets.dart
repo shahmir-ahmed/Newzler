@@ -1,5 +1,8 @@
+import 'package:floating_snackbar/floating_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/news_details/news_details_view.dart';
+import 'package:newzler/presentation/views/video/video_play_view.dart';
 
 // whole app common widgets here
 
@@ -70,6 +73,8 @@ class CustomButton extends StatelessWidget {
                   // white bg and grey text color = secondary button
                   : secondaryButton != null
                       ? ButtonStyle(
+                          // overlayColor:
+                          //     WidgetStatePropertyAll(Utils.whiteColor),
                           backgroundColor:
                               WidgetStatePropertyAll(Utils.whiteColor),
                           foregroundColor:
@@ -91,6 +96,42 @@ class CustomButton extends StatelessWidget {
                             : null,
                   ),
             ),
+    );
+  }
+}
+
+// combined buttons login, signup
+class LoginSignupCombinedButtons extends StatelessWidget {
+  const LoginSignupCombinedButtons({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return // buttons row
+        Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        // login button
+        CustomButton(
+          primaryButton: true,
+          onPressed: () {
+            // push login screen
+            // pushLoginScreen(context);
+          },
+          buttonText: 'Login',
+          buttonHeight: 60,
+          buttonWidth: 150.0,
+        ),
+        // signup button
+        CustomButton(
+          secondaryButton: true,
+          onPressed: () {
+            // pushSignupScreen(context);
+          },
+          buttonText: 'Sign up',
+          buttonHeight: 60,
+          buttonWidth: 150.0,
+        ),
+      ],
     );
   }
 }
@@ -183,11 +224,11 @@ class NewsInteractionButtons extends StatelessWidget {
   NewsInteractionButtons(
       {required this.mainAxisAlignment,
       this.bookmarked,
-      this.blackColoredIcons});
+      this.whiteColoredIcons});
 
   MainAxisAlignment mainAxisAlignment;
   bool? bookmarked;
-  bool? blackColoredIcons;
+  bool? whiteColoredIcons; // for news details screen needs to be true
 
   _showReactBottomSheet(context) {
     return showModalBottomSheet(
@@ -405,6 +446,7 @@ class NewsInteractionButtons extends StatelessWidget {
   // show share bottom sheet
   _showShareBottomSheet(context) {
     return showModalBottomSheet(
+      backgroundColor: Colors.white.withOpacity(0.9),
       useRootNavigator: true,
       context: context,
       builder: (context) {
@@ -412,10 +454,10 @@ class NewsInteractionButtons extends StatelessWidget {
           height: 255.0,
           padding: EdgeInsets.all(25.0),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0)),
-              color: Utils.lightGreyColor4),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0)),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -612,6 +654,58 @@ class NewsInteractionButtons extends StatelessWidget {
     );
   }
 
+  // show share bottom sheet
+  _showWhoopsBottomSheet(context) {
+    return showModalBottomSheet(
+      useRootNavigator: true,
+      context: context,
+      builder: (context) {
+        return Container(
+          color: Utils.whiteColor,
+          height: 270.0,
+          padding: EdgeInsets.all(25.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // react heading text
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Whoops!',
+                    style: Utils.kAppPrimaryTextStyle
+                        .copyWith(fontWeight: FontWeight.w800),
+                  ),
+                ],
+              ),
+
+              // space
+              SizedBox(
+                height: 40.0,
+              ),
+
+              // text
+              Text(
+                textAlign: TextAlign.center,
+                'Create an account or login to Newzler to continue.',
+                style: Utils.kAppPrimaryTextStyle.copyWith(
+                    fontWeight: FontWeight.w800, color: Utils.lightGreyColor),
+              ),
+
+              // space
+              SizedBox(
+                height: 20.0,
+              ),
+
+              // buttons row
+              LoginSignupCombinedButtons()
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -620,67 +714,71 @@ class NewsInteractionButtons extends StatelessWidget {
         // black colored icons
         // like button
         GestureDetector(
-          onTap: () {
-            // show bottom sheet to react to news
-            _showReactBottomSheet(context);
-          },
-          child: SizedBox(
-            child: blackColoredIcons == null
+            onTap: () {
+              // show bottom sheet to react to news
+              // _showReactBottomSheet(context);
+              _showWhoopsBottomSheet(context);
+            },
+            child: whiteColoredIcons != null
                 ? Icon(
                     Icons.thumb_up_outlined,
                     color: Utils.whiteColor,
                   )
                 : Icon(
                     Icons.thumb_up_outlined,
-                    color: Colors.black,
-                  ),
-          ),
-        ),
+                    // color: Colors.black, // by default black
+                  )),
 
         // bookmark button
         bookmarked == null
-            ? blackColoredIcons == null
+            ? whiteColoredIcons != null // if true then show white icon
                 ? Icon(
                     Icons.bookmark_border,
                     color: Utils.whiteColor,
                   )
+                // black colored default icon
                 : Icon(
                     Icons.bookmark_border,
-                    color: Colors.black,
+                    // color: Colors.black, // by default black
                   )
-            : Icon(
-                Icons.bookmark_outlined,
-                color: Utils.kAppPrimaryColor,
+            :
+            // bookmarked not null
+            Icon(
+                bookmarked! ? Icons.bookmark_outlined : Icons.bookmark_border,
+                color: bookmarked! ? Utils.kAppPrimaryColor : Colors.black,
               ),
 
         // copy link button
-        blackColoredIcons == null
-            ? Icon(
-                Icons.copy,
-                color: Utils.whiteColor,
-              )
-            : Icon(
-                Icons.copy,
-                color: Colors.black,
-              ),
+        GestureDetector(
+            onTap: () {
+              // show floating snackbar that copied on clipboard
+              floatingSnackBar(
+                  message: '✅ Link copied to clipboard', context: context);
+            },
+            child: whiteColoredIcons != null
+                ? Icon(
+                    Icons.copy,
+                    color: Utils.whiteColor,
+                  )
+                : Icon(
+                    Icons.copy,
+                    // color: Colors.black, // by default black
+                  )),
 
         GestureDetector(
             onTap: () {
               // show bottom sheet to react to news
               _showShareBottomSheet(context);
             },
-            child: SizedBox(
-                child: blackColoredIcons == null
-                    ?
-                    // share button
-                    Icon(
-                        Icons.share,
-                        color: Utils.whiteColor,
-                      )
-                    : Icon(
-                        Icons.share,
-                        color: Colors.black,
-                      )))
+            child: whiteColoredIcons != null
+                ? Icon(
+                    Icons.share,
+                    color: Utils.whiteColor,
+                  )
+                : Icon(
+                    Icons.share,
+                    // color: Colors.black, // by default black
+                  ))
       ],
     );
   }
@@ -690,18 +788,20 @@ class NewsInteractionButtons extends StatelessWidget {
 class NewsCard extends StatelessWidget {
   NewsCard(
       {required this.newsImagePath,
-      this.onImageClick,
+      // this.onVideoImageClick,
       this.videoNews,
       this.videoTime,
+      this.showTimeNewsChannel = true,
       this.showInteractionButtons = true,
-      this.showTimeNewsChannel = true});
+      this.bookmarked});
 
   String newsImagePath;
   bool? videoNews; // video news or not i.e. null
-  VoidCallback? onImageClick;
+  // VoidCallback? onVideoImageClick;
   String? videoTime;
   bool showInteractionButtons;
   bool showTimeNewsChannel;
+  bool? bookmarked; // interaction button bookmarked or not
 
   @override
   Widget build(BuildContext context) {
@@ -714,8 +814,23 @@ class NewsCard extends StatelessWidget {
         children: [
           // news image
           GestureDetector(
-            onTap:
-                onImageClick, // if null then nothing will happen if present then the the operation passed will run
+            // if video news then push video play view screen otherwise push read fullstory screen for simple news
+            onTap: videoNews != null
+                ? () {
+                    // push full coverage screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => VideoPlayView()),
+                    );
+                  }
+                : () {
+                    // push read full story screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NewsDetailsView()),
+                    );
+                  }, // if null then nothing will happen if present then the the operation passed will run
             child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: 200.0,
@@ -841,12 +956,52 @@ class NewsCard extends StatelessWidget {
           showInteractionButtons
               ? NewsInteractionButtons(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  bookmarked: true,
-                  blackColoredIcons: true,
+                  bookmarked: bookmarked ?? true,
                 )
               : SizedBox()
         ],
       ),
     );
+  }
+}
+
+// account option for more screen
+class AccountOptionTile extends StatelessWidget {
+  AccountOptionTile({required this.iconImagePath, required this.option});
+
+  String iconImagePath;
+  String option;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: EdgeInsets.only(bottom: 10.0),
+        // padding: EdgeInsets.all(20.0),
+        // decoration: BoxDecoration(
+        //     color: Utils.lightBlueColor,
+        //     borderRadius: BorderRadius.all(Radius.circular(10.0))),
+        child: ListTile(
+            minTileHeight: 65.0,
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(6.0))),
+            tileColor: Utils.lightBlueColor,
+            leading:
+                // icon
+                Image(
+              image: AssetImage(iconImagePath),
+              width: 24,
+              height: 24.0,
+            ),
+
+            // space
+            // SizedBox(
+            //   width: 20.0,
+            // ),
+
+            // option
+            title: Text(
+              option,
+              style: Utils.kAppPrimaryTextStyle,
+            )));
   }
 }
