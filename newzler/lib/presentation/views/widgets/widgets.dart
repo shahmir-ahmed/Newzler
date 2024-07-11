@@ -1,6 +1,8 @@
 import 'package:floating_snackbar/floating_snackbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/my_bookmark/widgets/widgets.dart';
 import 'package:newzler/presentation/views/news_details/news_details_view.dart';
 import 'package:newzler/presentation/views/video/video_play_view.dart';
 
@@ -133,6 +135,84 @@ class LoginSignupCombinedButtons extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+// combined buttons login, signup
+class CombinedButtons extends StatelessWidget {
+  CombinedButtons({
+    required this.primaryButtonText,
+    required this.onPrimaryButtonPressed,
+    this.onSecondaryButtonPressed,
+    this.secondaryButtonText,
+    this.onlyPrimaryButton,
+    this.oppositePosition,
+  });
+
+  String primaryButtonText;
+  String? secondaryButtonText;
+  bool? onlyPrimaryButton;
+  bool? oppositePosition;
+  VoidCallback onPrimaryButtonPressed;
+  VoidCallback? onSecondaryButtonPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return // buttons row
+        onlyPrimaryButton != null
+            ? CustomButton(
+                primaryButton: true,
+                onPressed: () => onPrimaryButtonPressed(),
+                buttonText: primaryButtonText,
+                buttonHeight: 60,
+                buttonWidth: MediaQuery.of(context).size.width,
+              )
+            :
+            // opposite positions i.e. secondary first then primary
+            oppositePosition != null
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      // secondary button
+                      CustomButton(
+                        secondaryButton: true,
+                        onPressed: () => onSecondaryButtonPressed!(),
+                        buttonText: secondaryButtonText,
+                        buttonHeight: 60,
+                        buttonWidth: 150.0,
+                      ),
+
+                      // primary button
+                      CustomButton(
+                        primaryButton: true,
+                        onPressed: () => onPrimaryButtonPressed(),
+                        buttonText: primaryButtonText,
+                        buttonHeight: 60,
+                        buttonWidth: 150.0,
+                      ),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      // login button
+                      CustomButton(
+                        primaryButton: true,
+                        onPressed: () => onPrimaryButtonPressed(),
+                        buttonText: primaryButtonText,
+                        buttonHeight: 60,
+                        buttonWidth: 150.0,
+                      ),
+                      // secondary button
+                      CustomButton(
+                        secondaryButton: true,
+                        onPressed: () => onSecondaryButtonPressed!(),
+                        buttonText: secondaryButtonText,
+                        buttonHeight: 60,
+                        buttonWidth: 150.0,
+                      ),
+                    ],
+                  );
   }
 }
 
@@ -1003,5 +1083,196 @@ class AccountOptionTile extends StatelessWidget {
               option,
               style: Utils.kAppPrimaryTextStyle,
             )));
+  }
+}
+
+// banner image, heading text, text widgets combined
+class BannerImageText extends StatelessWidget {
+  BannerImageText(
+      {required this.bannerImagePath,
+      this.subText,
+      this.text,
+      this.textColor,
+      this.headingText,
+      this.smallWidthSubText});
+
+  String bannerImagePath;
+  String? subText;
+  String? text;
+  Color? textColor;
+  String? headingText; // if heading text given then text will not be used
+  bool? smallWidthSubText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      // mainAxisAlignment:
+      //     MainAxisAlignment.spaceAround,
+      children: [
+        // for no news found in search results screen
+        text == 'No news has been found'
+            ?
+            // space
+            SizedBox(
+                height: 150.0,
+              )
+            // for other screens
+            : SizedBox(
+                height: 50.0,
+              ),
+
+        // banner
+        Container(
+            child: Image(
+          image: AssetImage(bannerImagePath),
+          fit: BoxFit.contain,
+        )),
+
+        // for no news found in search results screen
+        text == 'No news has been found'
+            ?
+            // space
+            SizedBox(
+                height: 200.0,
+              )
+            // for other screens
+            : SizedBox(
+                height: 60.0,
+              ),
+
+        // text
+        headingText == null
+            ? text != null
+                ? Text(
+                    textAlign: TextAlign.center,
+                    text!,
+                    style: Utils.kAppPrimaryTextStyle.copyWith(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w800,
+                        color: textColor ?? Colors.black),
+                  )
+                : SizedBox()
+            : Text(
+                textAlign: TextAlign.center,
+                headingText!,
+                style: Utils.kAppPrimaryTextStyle.copyWith(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.black),
+              ),
+
+        // space
+        subText != null
+            ? SizedBox(
+                height: 10.0,
+              )
+            : SizedBox(),
+
+        // sub text
+        subText != null
+            ? smallWidthSubText != null
+                ? SizedBox(
+                    width: MediaQuery.of(context).size.width - 150,
+                    child: Text(
+                      subText!,
+                      style: Utils.kAppPrimaryTextStyle
+                          .copyWith(fontSize: 13, color: Utils.greyColor4),
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                : Text(
+                    subText!,
+                    style: Utils.kAppPrimaryTextStyle
+                        .copyWith(fontSize: 13, color: Utils.greyColor4),
+                    textAlign: TextAlign.center,
+                  )
+            : SizedBox(),
+      ],
+    );
+  }
+}
+
+// my bookmark news tile
+class MyBookmarkNewsTile extends StatelessWidget {
+  MyBookmarkNewsTile(
+      {required this.imagePath,
+      required this.title,
+      required this.timeAgo,
+      required this.location,
+      required this.checkBoxValue,
+      required this.onCheckBoxChanged,
+      required this.longPressed});
+
+  String imagePath;
+  String title;
+  String timeAgo;
+  String location;
+  bool checkBoxValue;
+  VoidCallback onCheckBoxChanged;
+  bool longPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // color: Colors.amber,
+      margin: EdgeInsets.only(bottom: 25.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // show checkbox if long pressed
+          longPressed
+              ? CustomCheckbox(
+                  iconSize: 20.0,
+                  checkColor: Utils.whiteColor,
+                  value: checkBoxValue,
+                  onChanged: onCheckBoxChanged)
+              : SizedBox(),
+          // space
+          longPressed ? SizedBox(width: 15.0) : SizedBox(),
+          // news image
+          Image(
+            image: AssetImage(imagePath),
+            width: 140,
+            height: 85,
+          ),
+
+          // space
+          SizedBox(
+            width: 10.0,
+          ),
+
+          // expanded column
+          Expanded(
+            child: Container(
+              // height: 83,
+              // color: Colors.amber,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // title
+                  Text(
+                    title.length > 60 ? '${title.substring(0, 60)}...' : title,
+                    style: Utils.kAppPrimaryTextStyle.copyWith(fontSize: 12.0),
+                  ),
+
+                  // space
+                  SizedBox(
+                    height: 10.0,
+                  ),
+
+                  // time ago, location
+                  Text(
+                    '$timeAgo | $location',
+                    style: Utils.kAppPrimaryTextStyle
+                        .copyWith(fontSize: 9.0, color: Utils.greyColor2),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

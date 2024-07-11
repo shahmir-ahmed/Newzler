@@ -149,36 +149,10 @@ class _SearchResultViewState extends State<SearchResultView> {
                           ? SizedBox(
                               height: MediaQuery.of(context).size.height,
                               width: MediaQuery.of(context).size.width,
-                              // color: Colors.amber,
-                              child: Column(
-                                // mainAxisAlignment:
-                                //     MainAxisAlignment.spaceAround,
-                                children: [
-                                  // space
-                                  SizedBox(
-                                    height: 150.0,
-                                  ),
-
-                                  // banner
-                                  Image(
-                                      image: AssetImage(
-                                          'assets/images/not-found-banner.png')),
-
-                                  // space
-                                  SizedBox(
-                                    height: 200.0,
-                                  ),
-
-                                  // text
-                                  Text(
-                                    'No news has been found',
-                                    style: Utils.kAppPrimaryTextStyle.copyWith(
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w800),
-                                  )
-                                ],
-                              ),
-                            )
+                              child: BannerImageText(
+                                  bannerImagePath:
+                                      'assets/images/not-found-banner.png',
+                                  text: 'No news has been found'))
                           // show all results
                           : Column(
                               children: [

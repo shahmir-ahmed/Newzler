@@ -15,6 +15,7 @@ class Utils {
   static Color greyColor = Color(0xff4A4A4A);
   static Color greyColor2 = Color(0xff707176);
   static Color greyColor3 = Color(0xff2C2C2C);
+  static Color greyColor4 = Color(0xff808080);
   static Color transparentColor = Colors.white.withOpacity(0.0);
 
   // text style
@@ -30,7 +31,7 @@ class Utils {
   */
 
   // action app bar method
-  // get screen app bar
+  // get screen app bar for login, signup screens
   static getActionAppBar(onBackPressed, onCrossPressed, backgroundColor,
       backButtonColor, backButtonSize) {
     return AppBar(
@@ -63,6 +64,44 @@ class Utils {
                     )),
               )
             ],
+    );
+  }
+
+  // action app bar with title method
+  // get screen app bar for my bookmark screen
+  static getMyBookmarkActionAppBar(onCrossPressed, onDeletePressed) {
+    return AppBar(
+      scrolledUnderElevation: 0.0,
+      title: Text(
+        'My Bookmark',
+        style: Utils.kAppPrimaryTextStyle.copyWith(fontSize: 20.0),
+      ),
+      centerTitle: true,
+      // cross icon
+      leading: GestureDetector(
+          onTap: onCrossPressed,
+          child: Icon(
+            Icons.cancel,
+            size: 30.0,
+            color: Utils.kAppPrimaryColor,
+          )),
+
+      backgroundColor: Utils.whiteColor,
+      elevation: 0.0,
+      // if on back pressed is null then not show back button
+      actions: [
+        // delete icon
+        Padding(
+          padding: const EdgeInsets.only(right: 20.0),
+          child: GestureDetector(
+              onTap: onDeletePressed,
+              child: Icon(
+                Icons.delete,
+                size: 30.0,
+                color: Colors.red,
+              )),
+        )
+      ],
     );
   }
 

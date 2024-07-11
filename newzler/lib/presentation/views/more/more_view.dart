@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/error/under_maintenance/no_internet_view.dart';
+import 'package:newzler/presentation/views/error/under_maintenance/under_maintenance_view.dart';
+import 'package:newzler/presentation/views/error/under_maintenance/update_app_view.dart';
+import 'package:newzler/presentation/views/my_bookmark/my_bookmark_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class MoreView extends StatelessWidget {
@@ -217,12 +221,51 @@ class MoreView extends StatelessWidget {
                   : accountOptions.map((accountOptionMap) {
                       return GestureDetector(
                         onTap: () {
+                          /*
                           // push not logged in screen
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MoreView.isNotLoggedIn()),
                           );
+                          */
+                          if (accountOptionMap['option'] == 'My Bookmark') {
+                            // push my bookmark screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyBookmarkView()),
+                            );
+                          }
+                          // notifications screen
+                          else if (accountOptionMap['option'] ==
+                              'Notifications') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => UnderMaintenanceView()),
+                            );
+                          }
+                          // theme screen
+                          else if (accountOptionMap['option'] == 'Theme') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => UpdateAppView()),
+                            );
+                          }
+                          // my publisher screen
+                          else if (accountOptionMap['option'] ==
+                              'My Publisher') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NoInternetView()),
+                            );
+                          }
                         },
                         child: AccountOptionTile(
                             iconImagePath: accountOptionMap['icon'] as String,
