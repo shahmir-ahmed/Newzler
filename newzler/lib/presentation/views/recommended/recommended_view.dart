@@ -9,7 +9,7 @@ class RecommendedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.getKAppPrimaryAppBar('Video', true),
+      appBar: Utils.getKAppPrimaryAppBar('Video', true, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(context),
     );

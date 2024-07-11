@@ -8,7 +8,7 @@ class FullCoverageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.getKAppPrimaryAppBar('Full coverage', true),
+      appBar: Utils.getKAppPrimaryAppBar('Full coverage', true, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(context),
     );

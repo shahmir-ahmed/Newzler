@@ -55,7 +55,7 @@ class _SearchResultViewState extends State<SearchResultView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.getKAppPrimaryAppBar('Search', true),
+      appBar: Utils.getKAppPrimaryAppBar('Search', true, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(context),
     );

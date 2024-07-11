@@ -165,7 +165,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
                     message: 'Please select a news first', context: context);
               }
             })
-          : Utils.getKAppPrimaryAppBar('My Bookmark', true),
+          : Utils.getKAppPrimaryAppBar('My Bookmark', true, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(),
     );

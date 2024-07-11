@@ -11,11 +11,13 @@ class Utils {
   static Color lightGreyColor2 = Color(0xffCA8A8A8);
   static Color lightGreyColor3 = Color(0xffCCCCCC);
   static Color lightGreyColor4 = Color(0xffF2F2F2);
+  static Color lightGreyColor5 = Color(0xffD9D9D9);
   static Color lightBlueColor = Color(0xffF7F8FA);
   static Color greyColor = Color(0xff4A4A4A);
   static Color greyColor2 = Color(0xff707176);
   static Color greyColor3 = Color(0xff2C2C2C);
   static Color greyColor4 = Color(0xff808080);
+  static Color greyColor5 = Color(0xff7B7B7B);
   static Color transparentColor = Colors.white.withOpacity(0.0);
 
   // text style
@@ -106,7 +108,7 @@ class Utils {
   }
 
 // get primary app bar with title only in center
-  static getKAppPrimaryAppBar(String title, bool centerTitle) {
+  static getKAppPrimaryAppBar(String title, bool centerTitle, actions) {
     return AppBar(
       title: Text(
         title,
@@ -116,6 +118,7 @@ class Utils {
       backgroundColor: Utils.whiteColor,
       elevation: 0.0,
       scrolledUnderElevation: 0.0,
+      actions: actions,
     );
   }
 

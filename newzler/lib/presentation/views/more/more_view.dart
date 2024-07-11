@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/error/under_maintenance/no_internet_view.dart';
+import 'package:newzler/presentation/views/error/no_internet/no_internet_view.dart';
 import 'package:newzler/presentation/views/error/under_maintenance/under_maintenance_view.dart';
-import 'package:newzler/presentation/views/error/under_maintenance/update_app_view.dart';
+import 'package:newzler/presentation/views/error/update_app/update_app_view.dart';
 import 'package:newzler/presentation/views/my_bookmark/my_bookmark_view.dart';
+// import 'package:newzler/presentation/views/my_language/my_language_view.dart';
+// import 'package:newzler/presentation/views/my_publisher/my_publisher_view.dart';
+import 'package:newzler/presentation/views/my_publisher_my_language/widgets/my_publisher_my_language_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class MoreView extends StatelessWidget {
@@ -106,7 +109,7 @@ class MoreView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.getKAppPrimaryAppBar('Account', false),
+      appBar: Utils.getKAppPrimaryAppBar('Account', false, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(context),
     );
@@ -263,7 +266,23 @@ class MoreView extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => NoInternetView()),
+                                  builder: (context) =>
+                                      MyPublisherMyLanguageView(
+                                        myPublisherScreen: true,
+                                      )),
+                            );
+                          }
+                          // my language screen
+                          else if (accountOptionMap['option'] ==
+                              'My Language') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      MyPublisherMyLanguageView(
+                                        myLanguageScreen: true,
+                                      )),
                             );
                           }
                         },

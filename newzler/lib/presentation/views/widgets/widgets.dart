@@ -1,8 +1,6 @@
-import 'package:floating_snackbar/floating_snackbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:floating_snackbar/floating_snackbar.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/my_bookmark/widgets/widgets.dart';
 import 'package:newzler/presentation/views/news_details/news_details_view.dart';
 import 'package:newzler/presentation/views/video/video_play_view.dart';
 
@@ -313,7 +311,8 @@ class NewsInteractionButtons extends StatelessWidget {
   _showReactBottomSheet(context) {
     return showModalBottomSheet(
       backgroundColor: Colors.white.withOpacity(0.9),
-      useRootNavigator: true,
+      useRootNavigator:
+          true, // This will display model sheet above all other content.
       context: context,
       builder: (context) {
         return Container(
@@ -527,7 +526,8 @@ class NewsInteractionButtons extends StatelessWidget {
   _showShareBottomSheet(context) {
     return showModalBottomSheet(
       backgroundColor: Colors.white.withOpacity(0.9),
-      useRootNavigator: true,
+      useRootNavigator:
+          true, // This will display model sheet above all other content.
       context: context,
       builder: (context) {
         return Container(
@@ -1223,7 +1223,7 @@ class MyBookmarkNewsTile extends StatelessWidget {
           longPressed
               ? CustomCheckbox(
                   iconSize: 20.0,
-                  checkColor: Utils.whiteColor,
+                  checkedIconColor: Utils.whiteColor,
                   value: checkBoxValue,
                   onChanged: onCheckBoxChanged)
               : SizedBox(),
@@ -1272,6 +1272,234 @@ class MyBookmarkNewsTile extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+// my language, publisher item tile
+class MyLanguageMyPublisherTile extends StatelessWidget {
+  MyLanguageMyPublisherTile({
+    this.imagePath,
+    required this.title,
+    required this.checkedValue,
+    required this.onCheckChanged,
+    this.myLanguageTile,
+    this.myPublisherTile,
+  });
+
+  String? imagePath;
+  String title;
+  bool checkedValue;
+  VoidCallback onCheckChanged;
+  // publisher or my language tile
+  bool? myLanguageTile;
+  bool? myPublisherTile;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: myLanguageTile != null
+            ? EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 0)
+            : null,
+        margin: myPublisherTile != null ? EdgeInsets.only(bottom: 40.0) : null,
+        child: myPublisherTile != null
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // row
+                  Row(
+                    children: [
+                      // icon image
+                      title == 'All Publishers'
+                          ? Container(
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(23.0)),
+                                color: Utils.lightGreyColor5,
+                              ),
+                              padding: const EdgeInsets.all(13.0),
+                              child: Image(
+                                image: AssetImage(imagePath!),
+                              ),
+                              width: 50,
+                              height: 50,
+                            )
+                          : CircleAvatar(
+                              backgroundColor: Utils.lightGreyColor,
+                              backgroundImage: AssetImage(imagePath!),
+                              radius: 22,
+                            ),
+                      // space
+                      SizedBox(
+                        width: 20.0,
+                      ),
+
+                      // text
+                      Text(
+                        title,
+                        style: Utils.kAppPrimaryTextStyle.copyWith(
+                            fontWeight: FontWeight.w800, fontSize: 16),
+                      ),
+                    ],
+                  ),
+
+                  // custom checkbox
+                  Padding(
+                    padding: const EdgeInsets.only(right: 18.0),
+                    child: CustomCheckbox.forPublisherScreen(
+                        checkedBgColor: Utils.whiteColor,
+                        checkedIconColor: Utils.kAppPrimaryColor,
+                        iconSize: 14,
+                        width: 20,
+                        height: 20,
+                        borderWidth: 1.5,
+                        value:
+                            checkedValue, // current checked value for this publisher
+                        onChanged: () {
+                          onCheckChanged();
+                        }),
+                  )
+
+                  //
+                ],
+              )
+            : myLanguageTile != null
+                ?
+                // column
+                Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // text
+                          Text(
+                            title,
+                            style: Utils.kAppPrimaryTextStyle.copyWith(
+                                color: checkedValue
+                                    ? Utils.kAppPrimaryColor
+                                    : Utils.greyColor5,
+                                fontSize: 16),
+                          ),
+
+                          // custom checkbox
+                          CustomCheckbox.forPublisherScreen(
+                              checkedBgColor: Utils.whiteColor,
+                              checkedIconColor: Utils.kAppPrimaryColor,
+                              iconSize: 14,
+                              width: 20,
+                              height: 20,
+                              borderWidth: 1.5,
+                              value:
+                                  checkedValue, // current checked value for this publisher
+                              onChanged: () {
+                                onCheckChanged();
+                              })
+                        ],
+                      ),
+                      // space
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      // divider
+                      Divider(
+                        height: 1.0,
+                        color: Utils.lightGreyColor4,
+                      ),
+                    ],
+                  )
+                : SizedBox());
+  }
+}
+
+
+// custom checkbox
+class CustomCheckbox extends StatefulWidget {
+  CustomCheckbox(
+      {Key? key,
+      this.width = 28.0,
+      this.height = 28.0,
+      this.color,
+      required this.checkedIconColor,
+      required this.iconSize,
+      required this.value,
+      required this.onChanged,
+      this.checkedBgColor,
+      this.borderWidth})
+      : super(key: key);
+
+// custom checkbox for my publisher and languages screen
+  CustomCheckbox.forPublisherScreen({
+    this.width = 28.0,
+    this.height = 28.0,
+    this.color,
+    required this.checkedIconColor,
+    required this.iconSize,
+    required this.value,
+    required this.onChanged,
+    this.checkedBgColor,
+    this.borderWidth,
+    this.publisherScreen = true,
+  });
+
+  final double width;
+  final double height;
+  final Color? color;
+  final double? borderWidth;
+  // Now you can set the checkmark size of your own
+  final double iconSize;
+  final Color checkedIconColor;
+  final bool value;
+  VoidCallback onChanged;
+  Color? checkedBgColor;
+
+  // for publisher screen checkbox
+  bool? publisherScreen;
+
+  @override
+  State<CustomCheckbox> createState() => _CustomCheckboxState();
+}
+
+class _CustomCheckboxState extends State<CustomCheckbox> {
+  // bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      // onTap: () {
+      // setState(() => isChecked = !isChecked);
+      // widget.onChanged?.call(isChecked);
+
+      // },
+      onTap: () => widget.onChanged(),
+      child: Container(
+        width: widget.width,
+        height: widget.height,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: widget.value
+                ? Utils.kAppPrimaryColor
+                : widget.color ?? Colors.grey.shade500,
+            width: widget.borderWidth ?? 2.0,
+          ),
+          borderRadius: BorderRadius.circular(14.0),
+          color: widget.value
+              ? widget.checkedBgColor ?? Utils.kAppPrimaryColor
+              : Utils.whiteColor,
+        ),
+        child: widget.value
+            ? Icon(
+                Icons.check,
+                size: widget.iconSize,
+                color: widget.checkedIconColor,
+              )
+            : widget.publisherScreen != null
+                ? Icon(
+                    Icons.check,
+                    size: widget.iconSize,
+                    color: Colors.grey.shade500,
+                  )
+                : null,
       ),
     );
   }
