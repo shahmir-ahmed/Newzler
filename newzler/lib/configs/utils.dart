@@ -12,12 +12,16 @@ class Utils {
   static Color lightGreyColor3 = Color(0xffCCCCCC);
   static Color lightGreyColor4 = Color(0xffF2F2F2);
   static Color lightGreyColor5 = Color(0xffD9D9D9);
+  static Color lightGreyColor6 = Color(0xff8C8C8C);
   static Color lightBlueColor = Color(0xffF7F8FA);
   static Color greyColor = Color(0xff4A4A4A);
   static Color greyColor2 = Color(0xff707176);
   static Color greyColor3 = Color(0xff2C2C2C);
   static Color greyColor4 = Color(0xff808080);
   static Color greyColor5 = Color(0xff7B7B7B);
+  static Color greyColor6 = Color(0xff626262);
+  static Color greyColor7 = Color(0xff565656);
+  static Color greyColor8 = Color(0xff797979);
   static Color transparentColor = Colors.white.withOpacity(0.0);
 
   // text style

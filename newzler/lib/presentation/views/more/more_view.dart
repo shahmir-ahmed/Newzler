@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/error/no_internet/no_internet_view.dart';
+// import 'package:newzler/presentation/views/error/no_internet/no_internet_view.dart';
 import 'package:newzler/presentation/views/error/under_maintenance/under_maintenance_view.dart';
 import 'package:newzler/presentation/views/error/update_app/update_app_view.dart';
+import 'package:newzler/presentation/views/live_cricket/live_cricket_view.dart';
 import 'package:newzler/presentation/views/my_bookmark/my_bookmark_view.dart';
+import 'package:newzler/presentation/views/my_category/my_category_view.dart';
 // import 'package:newzler/presentation/views/my_language/my_language_view.dart';
 // import 'package:newzler/presentation/views/my_publisher/my_publisher_view.dart';
 import 'package:newzler/presentation/views/my_publisher_my_language/widgets/my_publisher_my_language_view.dart';
+import 'package:newzler/presentation/views/profile/edit_profile_image.dart';
+import 'package:newzler/presentation/views/profile/profile_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class MoreView extends StatelessWidget {
@@ -135,10 +139,19 @@ class MoreView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // user image
-                        Image(
-                          image: AssetImage('assets/images/user-icon.png'),
-                          width: 70,
-                          height: 70,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EditProfileImage()),
+                            );
+                          },
+                          child: Image(
+                            image: AssetImage('assets/images/user-icon.png'),
+                            width: 70,
+                            height: 70,
+                          ),
                         ),
 
                         // space
@@ -156,11 +169,20 @@ class MoreView extends StatelessWidget {
                               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 // name
-                                Text(
-                                  'Darrell Chan',
-                                  style: Utils.kAppPrimaryTextStyle.copyWith(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w800),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ProfileView()),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Darrell Chan',
+                                    style: Utils.kAppPrimaryTextStyle.copyWith(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.w800),
+                                  ),
                                 ),
 
                                 // space
@@ -169,11 +191,20 @@ class MoreView extends StatelessWidget {
                                 ),
 
                                 // goto icon
-                                Image(
-                                  image:
-                                      AssetImage('assets/images/goto-icon.png'),
-                                  width: 20,
-                                  height: 20,
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ProfileView()),
+                                    );
+                                  },
+                                  child: Image(
+                                    image: AssetImage(
+                                        'assets/images/goto-icon.png'),
+                                    width: 20,
+                                    height: 20,
+                                  ),
                                 )
                               ],
                             ),
@@ -283,6 +314,25 @@ class MoreView extends StatelessWidget {
                                       MyPublisherMyLanguageView(
                                         myLanguageScreen: true,
                                       )),
+                            );
+                          }
+                          // my category screen
+                          else if (accountOptionMap['option'] ==
+                              'My Category') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyCategoryView()),
+                            );
+                          }
+                          // live score screen
+                          else if (accountOptionMap['option'] == 'About') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LiveCricketView()),
                             );
                           }
                         },
