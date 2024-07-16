@@ -380,24 +380,6 @@ class MoreView extends StatelessWidget {
                                   builder: (context) => NoInternetView()),
                             );
                           }
-                          // under maintenance screen
-                          else if (accountOptionMap['option'] == 'About') {
-                            // push
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => UnderMaintenanceView()),
-                            );
-                          }
-                          // update app screen
-                          else if (accountOptionMap['option'] == 'Privacy') {
-                            // push
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => UpdateAppView()),
-                            );
-                          }
                         },
                         child: AccountOptionTile(
                             iconImagePath: accountOptionMap['icon'] as String,

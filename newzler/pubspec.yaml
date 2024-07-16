@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^6.2.1
   carousel_slider: ^4.2.1
   floating_snackbar: ^1.0.5
+  flutter_floating_bottom_bar: ^1.2.0
 
 dev_dependencies:
   flutter_test:

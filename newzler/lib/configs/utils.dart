@@ -13,6 +13,7 @@ class Utils {
   static Color lightGreyColor4 = Color(0xffF2F2F2);
   static Color lightGreyColor5 = Color(0xffD9D9D9);
   static Color lightGreyColor6 = Color(0xff8C8C8C);
+  static Color lightGreyColor7 = Color(0xffF1F1F1);
   static Color lightBlueColor = Color(0xffF7F8FA);
   static Color greyColor = Color(0xff4A4A4A);
   static Color greyColor2 = Color(0xff707176);
