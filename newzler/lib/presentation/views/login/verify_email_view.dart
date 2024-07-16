@@ -57,8 +57,12 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
           }
 
           // push home screen
+          // Navigator.of(context)
+          //     .push(MaterialPageRoute(builder: (context) => HomeView()));
+
+          // push add profile image screen
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => HomeView()));
+              .push(MaterialPageRoute(builder: (context) => AddEditProfileImage.addImageScreen()));
         } else {
           // show floating snackbar
           floatingSnackBar(

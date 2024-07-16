@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/change_email_password/widgets/change_email_password_view.dart';
+import 'package:newzler/presentation/views/error/no_internet/no_internet_view.dart';
 // import 'package:newzler/presentation/views/error/no_internet/no_internet_view.dart';
 import 'package:newzler/presentation/views/error/under_maintenance/under_maintenance_view.dart';
 import 'package:newzler/presentation/views/error/update_app/update_app_view.dart';
 import 'package:newzler/presentation/views/live_cricket/live_cricket_view.dart';
 import 'package:newzler/presentation/views/my_bookmark/my_bookmark_view.dart';
 import 'package:newzler/presentation/views/my_category/my_category_view.dart';
-// import 'package:newzler/presentation/views/my_language/my_language_view.dart';
-// import 'package:newzler/presentation/views/my_publisher/my_publisher_view.dart';
 import 'package:newzler/presentation/views/my_publisher_my_language/widgets/my_publisher_my_language_view.dart';
-import 'package:newzler/presentation/views/profile/edit_profile_image.dart';
 import 'package:newzler/presentation/views/profile/profile_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
@@ -21,6 +20,10 @@ class MoreView extends StatelessWidget {
   bool? isNotLoggedIn;
 
   final accountOptions = [
+    {
+      'icon': 'assets/images/live-icon.png',
+      'option': 'Live Cricket',
+    },
     {
       'icon': 'assets/images/notifications-icon.png',
       'option': 'Notifications',
@@ -46,6 +49,10 @@ class MoreView extends StatelessWidget {
       'option': 'My Category',
     },
     {
+      'icon': 'assets/images/privacy-icon.png',
+      'option': 'Change password',
+    },
+    {
       'icon': 'assets/images/about-icon.png',
       'option': 'About',
     },
@@ -67,7 +74,7 @@ class MoreView extends StatelessWidget {
     },
     {
       'icon': 'assets/images/iconoir_facebook.png',
-      'option': 'Follow in Facebook',
+      'option': 'Follow on Facebook',
     },
     {
       'icon': 'assets/images/mdi_twitter.png',
@@ -108,6 +115,10 @@ class MoreView extends StatelessWidget {
       'icon': 'assets/images/about-icon.png',
       'option': 'About',
     },
+    {
+      'icon': 'assets/images/live-icon.png',
+      'option': 'Live Cricket',
+    },
   ];
 
   @override
@@ -144,7 +155,8 @@ class MoreView extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EditProfileImage()),
+                                  builder: (context) =>
+                                      AddEditProfileImage.editImageScreen()),
                             );
                           },
                           child: Image(
@@ -215,12 +227,22 @@ class MoreView extends StatelessWidget {
                             ),
 
                             // email
-                            Text(
-                              'abc@example.com',
-                              style: Utils.kAppPrimaryTextStyle.copyWith(
-                                  color: Utils.lightGreyColor,
-                                  fontSize: 13.0,
-                                  fontWeight: FontWeight.w800),
+                            GestureDetector(
+                              onTap: () {
+                                // push change email screen
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        ChangeEmailPasswordView(
+                                          heading: 'Change email address',
+                                        )));
+                              },
+                              child: Text(
+                                'abc@example.com',
+                                style: Utils.kAppPrimaryTextStyle.copyWith(
+                                    color: Utils.lightGreyColor,
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w800),
+                              ),
                             )
                           ],
                         ))
@@ -327,12 +349,53 @@ class MoreView extends StatelessWidget {
                             );
                           }
                           // live score screen
-                          else if (accountOptionMap['option'] == 'About') {
+                          else if (accountOptionMap['option'] ==
+                              'Live Cricket') {
                             // push
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => LiveCricketView()),
+                            );
+                          }
+                          // change password screen
+                          else if (accountOptionMap['option'] ==
+                              'Change password') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ChangeEmailPasswordView(
+                                        heading: 'Change password',
+                                      )),
+                            );
+                          }
+                          // no internet screen
+                          else if (accountOptionMap['option'] ==
+                              'Follow on Facebook') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NoInternetView()),
+                            );
+                          }
+                          // under maintenance screen
+                          else if (accountOptionMap['option'] == 'About') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => UnderMaintenanceView()),
+                            );
+                          }
+                          // update app screen
+                          else if (accountOptionMap['option'] == 'Privacy') {
+                            // push
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => UpdateAppView()),
                             );
                           }
                         },

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/profile/edit_birthday_view.dart';
-import 'package:newzler/presentation/views/profile/edit_country.dart';
-import 'package:newzler/presentation/views/profile/edit_gender.dart';
-import 'package:newzler/presentation/views/profile/edit_mobile_number_view.dart';
+import 'package:newzler/presentation/views/profile/widgets/edit_mobile_number_birthday_gender_country_view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -146,7 +143,10 @@ class ProfileView extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => EditMobileNumberView()),
+                        builder: (context) =>
+                            EditMobileBirthdayGenderCountryView(
+                              heading: 'Your mobile number',
+                            )),
                   );
                 },
                 child: Icon(
@@ -183,7 +183,11 @@ class ProfileView extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => EditBirthdayView()),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            EditMobileBirthdayGenderCountryView(
+                              heading: 'Your birthday',
+                            )),
                   );
                 },
                 child: Icon(
@@ -220,7 +224,11 @@ class ProfileView extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => EditGender()),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            EditMobileBirthdayGenderCountryView(
+                              heading: 'Your gender',
+                            )),
                   );
                 },
                 child: Icon(
@@ -257,7 +265,11 @@ class ProfileView extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => EditCountry()),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            EditMobileBirthdayGenderCountryView(
+                              heading: 'Your country',
+                            )),
                   );
                 },
                 child: Icon(

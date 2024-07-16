@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:floating_snackbar/floating_snackbar.dart';
 import 'package:newzler/configs/utils.dart';
+import 'package:newzler/presentation/views/home/home_view.dart';
 import 'package:newzler/presentation/views/news_details/news_details_view.dart';
 import 'package:newzler/presentation/views/video/video_play_view.dart';
 
@@ -796,8 +797,8 @@ class NewsInteractionButtons extends StatelessWidget {
         GestureDetector(
             onTap: () {
               // show bottom sheet to react to news
-              // _showReactBottomSheet(context);
-              _showWhoopsBottomSheet(context);
+              _showReactBottomSheet(context);
+              // _showWhoopsBottomSheet(context);
             },
             child: whiteColoredIcons != null
                 ? Icon(
@@ -1412,7 +1413,6 @@ class MyLanguageMyPublisherTile extends StatelessWidget {
   }
 }
 
-
 // custom checkbox
 class CustomCheckbox extends StatefulWidget {
   CustomCheckbox(
@@ -1500,6 +1500,151 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
                     color: Colors.grey.shade500,
                   )
                 : null,
+      ),
+    );
+  }
+}
+
+// add, edit profile image screen
+class AddEditProfileImage extends StatelessWidget {
+  AddEditProfileImage.addImageScreen({this.addImageScreen = true});
+  AddEditProfileImage.editImageScreen({this.editImageScreen = true});
+
+  bool? addImageScreen;
+  bool? editImageScreen;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: Utils.getKAppPrimaryAppBar('', false, null),
+      backgroundColor: Utils.whiteColor,
+      body: _getBody(context),
+    );
+  }
+
+  _getBody(context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // text
+          Text(
+            'How you will appear?',
+            style: Utils.kAppPrimaryTextStyle.copyWith(fontSize: 34),
+          ),
+
+          // space
+          SizedBox(
+            height: 90.0,
+          ),
+
+          // image
+          Center(
+              child: SizedBox(
+                  width: 130,
+                  height: 130,
+                  child:
+                      // add profile image screen
+                      addImageScreen != null
+                          ? Image(
+                              image: AssetImage(
+                                  'assets/images/add-profile-pic.png'),
+                              width: 162,
+                              height: 162,
+                            )
+                          // edit profile image screen
+                          : Stack(children: [
+                              Image(
+                                image:
+                                    AssetImage('assets/images/user-image.png'),
+                                width: 132,
+                                height: 132,
+                              ),
+
+                              // edit icon
+                              Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: CircleAvatar(
+                                      radius: 15,
+                                      backgroundColor: Utils.whiteColor,
+                                      foregroundImage: AssetImage(
+                                          'assets/images/tabler_edit.png')))
+                            ]))),
+
+          // space
+          SizedBox(
+            height: 90.0,
+          ),
+
+          addImageScreen != null
+              ? Column(
+                  children: [
+                    Center(
+                      // primary button continue
+                      child: CustomButton(
+                        onPressed: () {
+                          // push home screen
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomeView()));
+                        },
+                        primaryButton: true,
+                        buttonText: 'Continue',
+                        buttonHeight: 70,
+                        buttonWidth: MediaQuery.of(context).size.width,
+                      ),
+                    ),
+                    // space
+                    SizedBox(
+                      height: 20.0,
+                    ),
+
+                    // secondary button skip
+                    Center(
+                      child: CustomButton(
+                        onPressed: () {
+                          // push home screen
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomeView()));
+                        },
+                        secondaryButton: true,
+                        buttonText: 'Skip',
+                        buttonHeight: 70,
+                        buttonWidth: MediaQuery.of(context).size.width,
+                      ),
+                    )
+                  ],
+                )
+              : Column(
+                  children: [
+                    Center(
+                      // primary button update
+                      child: CustomButton(
+                        onPressed: () {},
+                        primaryButton: true,
+                        buttonText: 'Update',
+                        buttonHeight: 70,
+                        buttonWidth: MediaQuery.of(context).size.width,
+                      ),
+                    ),
+                    // space
+                    SizedBox(
+                      height: 20.0,
+                    ),
+
+                    // secondary button remove
+                    Center(
+                      child: CustomButton(
+                        onPressed: () {},
+                        secondaryButton: true,
+                        buttonText: 'Remove',
+                        buttonHeight: 70,
+                        buttonWidth: MediaQuery.of(context).size.width,
+                      ),
+                    )
+                  ],
+                )
+        ],
       ),
     );
   }
