@@ -901,7 +901,8 @@ class NewsCard extends StatelessWidget {
                     // push full coverage screen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const VideoPlayView()),
+                      MaterialPageRoute(
+                          builder: (context) => const VideoPlayView()),
                     );
                   }
                 : () {
@@ -1303,7 +1304,9 @@ class MyLanguageMyPublisherTile extends StatelessWidget {
         padding: myLanguageTile != null
             ? const EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 0)
             : null,
-        margin: myPublisherTile != null ? const EdgeInsets.only(bottom: 40.0) : null,
+        margin: myPublisherTile != null
+            ? const EdgeInsets.only(bottom: 40.0)
+            : null,
         child: myPublisherTile != null
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1315,8 +1318,8 @@ class MyLanguageMyPublisherTile extends StatelessWidget {
                       title == 'All Publishers'
                           ? Container(
                               decoration: BoxDecoration(
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(23.0)),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(23.0)),
                                 color: Utils.lightGreyColor5,
                               ),
                               padding: const EdgeInsets.all(13.0),
@@ -1584,6 +1587,8 @@ class AddEditProfileImage extends StatelessWidget {
                       // primary button continue
                       child: CustomButton(
                         onPressed: () {
+                          // clos screen
+                          Navigator.pop(context);
                           // push home screen
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const HomeView()));
@@ -1603,6 +1608,8 @@ class AddEditProfileImage extends StatelessWidget {
                     Center(
                       child: CustomButton(
                         onPressed: () {
+                          // clos screen
+                          Navigator.pop(context);
                           // push home screen
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const HomeView()));
