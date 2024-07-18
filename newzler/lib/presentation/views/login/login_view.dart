@@ -55,7 +55,7 @@ class _LoginViewState extends State<LoginView> {
 
         // push
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => HomeView()));
+            .push(MaterialPageRoute(builder: (context) => const HomeView()));
       }, null, null, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(),
@@ -71,7 +71,7 @@ class _LoginViewState extends State<LoginView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -83,7 +83,7 @@ class _LoginViewState extends State<LoginView> {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -95,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -113,7 +113,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
 
                     // space
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
 
@@ -129,7 +129,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
 
                     // space
-                    SizedBox(
+                    const SizedBox(
                       height: 45.0,
                     ),
 
@@ -141,7 +141,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
 
                     // space
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
 
@@ -179,7 +179,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
 
                     // space
-                    SizedBox(
+                    const SizedBox(
                       height: 40.0,
                     ),
 
@@ -201,7 +201,7 @@ class _LoginViewState extends State<LoginView> {
 
                           // push home screen
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => HomeView()));
+                              builder: (context) => const HomeView()));
                         }
                       },
                       buttonText: 'Login',
@@ -211,7 +211,7 @@ class _LoginViewState extends State<LoginView> {
                   ],
                 )),
             // space
-            SizedBox(
+            const SizedBox(
               height: 100.0,
             ),
             // text button column
@@ -232,7 +232,7 @@ class _LoginViewState extends State<LoginView> {
                       )),
                 ),
                 // space
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 // forgot username text button
@@ -252,7 +252,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
                 // space
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 // signup button
@@ -267,7 +267,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                     // space
-                    SizedBox(
+                    const SizedBox(
                       width: 5.0,
                     ),
                     GestureDetector(

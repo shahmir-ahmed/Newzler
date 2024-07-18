@@ -54,7 +54,7 @@ class _SignupViewState extends State<SignupView> {
 
         // push
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => HomeView()));
+            .push(MaterialPageRoute(builder: (context) => const HomeView()));
       }, null, null, null),
       backgroundColor: Utils.whiteColor,
       body: _getBody(),
@@ -69,7 +69,7 @@ class _SignupViewState extends State<SignupView> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               // space
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
 
@@ -81,7 +81,7 @@ class _SignupViewState extends State<SignupView> {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
 
@@ -93,7 +93,7 @@ class _SignupViewState extends State<SignupView> {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
 
@@ -120,7 +120,7 @@ class _SignupViewState extends State<SignupView> {
                                   ),
 
                                   // space
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10.0,
                                   ),
 
@@ -141,7 +141,7 @@ class _SignupViewState extends State<SignupView> {
                             ),
 
                             // space
-                            SizedBox(
+                            const SizedBox(
                               width: 25.0,
                             ),
 
@@ -159,7 +159,7 @@ class _SignupViewState extends State<SignupView> {
                                   ),
 
                                   // space
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10.0,
                                   ),
 
@@ -182,7 +182,7 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 45.0,
                         ),
 
@@ -196,7 +196,7 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
 
@@ -212,7 +212,7 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 45.0,
                         ),
 
@@ -223,7 +223,7 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
 
@@ -245,7 +245,7 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 45.0,
                         ),
 
@@ -257,7 +257,7 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
 
@@ -295,7 +295,7 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 45.0,
                         ),
 
@@ -313,7 +313,7 @@ class _SignupViewState extends State<SignupView> {
                                   });
                                 }),
                             // space
-                            SizedBox(
+                            const SizedBox(
                               width: 2.0,
                             ),
 
@@ -329,15 +329,15 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         showCheckBoxError
-                            ? Text(
+                            ? const Text(
                                 'Required',
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 183, 29, 18)),
                               )
-                            : SizedBox(),
+                            : const SizedBox(),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 40.0,
                         ),
 
@@ -384,7 +384,7 @@ class _SignupViewState extends State<SignupView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 30.0,
                         ),
                         // signup button
@@ -399,7 +399,7 @@ class _SignupViewState extends State<SignupView> {
                               ),
                             ),
                             // space
-                            SizedBox(
+                            const SizedBox(
                               width: 5.0,
                             ),
                             GestureDetector(

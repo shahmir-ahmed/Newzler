@@ -7,13 +7,13 @@ class LiveScoreCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       decoration: BoxDecoration(
           color: Utils.whiteColor,
-          borderRadius: BorderRadius.all(Radius.circular(5))),
+          borderRadius: const BorderRadius.all(Radius.circular(5))),
       width: MediaQuery.of(context).size.width - 100,
       height: 220,
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         children: [
           // row for live text at end
@@ -28,7 +28,7 @@ class LiveScoreCard extends StatelessWidget {
               Row(
                 children: [
                   // live icon
-                  Image(
+                  const Image(
                     image: AssetImage('assets/images/live-icon.png'),
                     width: 26,
                     height: 26,
@@ -46,7 +46,7 @@ class LiveScoreCard extends StatelessWidget {
             ],
           ),
           // space
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
 
@@ -56,7 +56,7 @@ class LiveScoreCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // column team 1 score
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // flag
@@ -67,7 +67,7 @@ class LiveScoreCard extends StatelessWidget {
                   ),
 
                   // space
-                  const SizedBox(
+                  SizedBox(
                     height: 5.0,
                   ),
 
@@ -78,7 +78,7 @@ class LiveScoreCard extends StatelessWidget {
                   ),
 
                   // space
-                  const SizedBox(
+                  SizedBox(
                     height: 2.0,
                   ),
 
@@ -92,15 +92,15 @@ class LiveScoreCard extends StatelessWidget {
 
               // v/s container
               Container(
-                padding: EdgeInsets.only(top: 20.0),
-                child: Text(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: const Text(
                   'V/S',
                   style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
               ),
 
               // second team score column
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // flag
@@ -111,7 +111,7 @@ class LiveScoreCard extends StatelessWidget {
                   ),
 
                   // space
-                  const SizedBox(
+                  SizedBox(
                     height: 5.0,
                   ),
 
@@ -122,7 +122,7 @@ class LiveScoreCard extends StatelessWidget {
                   ),
 
                   // space
-                  const SizedBox(
+                  SizedBox(
                     height: 2.0,
                   ),
 

@@ -29,29 +29,29 @@ class NewsDetailsView extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: 385,
             fit: BoxFit.cover,
-            image: AssetImage(
+            image: const AssetImage(
               'assets/images/news-details-banner.png',
             ),
           ),
           // ),
           // news details with bg color black
           Container(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             color: Colors.black,
             child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
               // space
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Row(
                 children: [
                   // news channel logo
-                  CircleAvatar(
+                  const CircleAvatar(
                     backgroundImage:
                         AssetImage('assets/images/news-18-logo.png'),
                   ),
                   // space
-                  SizedBox(
+                  const SizedBox(
                     width: 10.0,
                   ),
                   Column(
@@ -75,7 +75,7 @@ class NewsDetailsView extends StatelessWidget {
                 ],
               ),
               // space
-              SizedBox(
+              const SizedBox(
                 height: 8.0,
               ),
               Row(
@@ -83,12 +83,12 @@ class NewsDetailsView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // space
-                  SizedBox(
+                  const SizedBox(
                     width: 15.0,
                   ),
                   // red line
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       color: Colors.red,
                     ),
@@ -96,7 +96,7 @@ class NewsDetailsView extends StatelessWidget {
                     width: 5.0,
                   ),
                   // space
-                  SizedBox(
+                  const SizedBox(
                     width: 17.0,
                   ),
                   // news headline title
@@ -111,7 +111,7 @@ class NewsDetailsView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
 
@@ -119,7 +119,7 @@ class NewsDetailsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   // space
-                  SizedBox(
+                  const SizedBox(
                     width: 40.0,
                   ),
                   Expanded(
@@ -133,7 +133,7 @@ class NewsDetailsView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
 
@@ -144,7 +144,7 @@ class NewsDetailsView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               // red color button read full story

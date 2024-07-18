@@ -23,7 +23,7 @@ class UpdateAppView extends StatelessWidget {
               'An update is available with new features, a faster experience, fixes and more. It typically takes less then minute.',
         ),
         // space
-        SizedBox(
+        const SizedBox(
           height: 80.0,
         ),
         Padding(

@@ -112,7 +112,7 @@ class _MyPublisherMyLanguageViewState extends State<MyPublisherMyLanguageView> {
 
     // after 2 secs
     Future.delayed(
-        Duration(
+        const Duration(
           seconds: 2,
         ), () {
       setState(() {
@@ -178,7 +178,7 @@ class _MyPublisherMyLanguageViewState extends State<MyPublisherMyLanguageView> {
               Container(
                 height: 55.0,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                   color: Utils.lightGreyColor4,
                 ),
                 // container with border radius and bg color inside textfield
@@ -199,7 +199,7 @@ class _MyPublisherMyLanguageViewState extends State<MyPublisherMyLanguageView> {
                                 width: 27,
                                 height: 27,
                                 // color: Colors.amber,
-                                padding: EdgeInsets.all(12.0),
+                                padding: const EdgeInsets.all(12.0),
                                 child: CircularProgressIndicator(
                                   color: Utils.kAppPrimaryColor,
                                   strokeWidth: 2,
@@ -218,7 +218,7 @@ class _MyPublisherMyLanguageViewState extends State<MyPublisherMyLanguageView> {
                                   color: Utils.lightGreyColor2,
                                 ),
                               ),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.search,
                           size: 30.0,
                         )),
@@ -259,10 +259,10 @@ class _MyPublisherMyLanguageViewState extends State<MyPublisherMyLanguageView> {
               widget.myPublisherScreen != null
                   ?
                   // space
-                  SizedBox(
+                  const SizedBox(
                       height: 20.0,
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
 
               // title
               widget.myPublisherScreen != null
@@ -271,14 +271,14 @@ class _MyPublisherMyLanguageViewState extends State<MyPublisherMyLanguageView> {
                       style: Utils.kAppPrimaryTextStyle.copyWith(
                           fontWeight: FontWeight.w800, fontSize: 15.0),
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
 
               // space
               widget.myPublisherScreen != null
-                  ? SizedBox(
+                  ? const SizedBox(
                       height: 20.0,
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
 
               // column
               Column(
@@ -322,7 +322,7 @@ class _MyPublisherMyLanguageViewState extends State<MyPublisherMyLanguageView> {
                                   ),
                                 );
                               }
-                              return SizedBox();
+                              return const SizedBox();
                             }).toList()
                           // all publishers
                           : publishers.map((publisherMap) {
@@ -391,7 +391,7 @@ class _MyPublisherMyLanguageViewState extends State<MyPublisherMyLanguageView> {
                                           }),
                                     );
                                   }
-                                  return SizedBox();
+                                  return const SizedBox();
                                 }).toList()
                               // all languages
                               : languages.map((languageMap) {

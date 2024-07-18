@@ -28,7 +28,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
 
@@ -40,7 +40,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -50,14 +50,14 @@ class ProfileView extends StatelessWidget {
               readOnly: true,
               initialValue: 'Darrel Chan',
               style: Utils.kAppPrimaryTextStyle,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   suffixIcon: Icon(
                 Icons.arrow_right_alt_rounded,
                 size: 30,
               )),
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -69,7 +69,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -79,14 +79,14 @@ class ProfileView extends StatelessWidget {
               readOnly: true,
               initialValue: 'darrel',
               style: Utils.kAppPrimaryTextStyle,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   suffixIcon: Icon(
                 Icons.arrow_right_alt_rounded,
                 size: 30,
               )),
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -98,7 +98,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -108,14 +108,14 @@ class ProfileView extends StatelessWidget {
               readOnly: true,
               initialValue: 'abc123@example',
               style: Utils.kAppPrimaryTextStyle,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   suffixIcon: Icon(
                 Icons.arrow_right_alt_rounded,
                 size: 30,
               )),
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -127,7 +127,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -149,14 +149,14 @@ class ProfileView extends StatelessWidget {
                             )),
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_right_alt_rounded,
                   size: 30,
                 ),
               )),
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -168,7 +168,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -190,14 +190,14 @@ class ProfileView extends StatelessWidget {
                             )),
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_right_alt_rounded,
                   size: 30,
                 ),
               )),
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -209,7 +209,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -231,14 +231,14 @@ class ProfileView extends StatelessWidget {
                             )),
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_right_alt_rounded,
                   size: 30,
                 ),
               )),
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -250,7 +250,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -272,14 +272,14 @@ class ProfileView extends StatelessWidget {
                             )),
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_right_alt_rounded,
                   size: 30,
                 ),
               )),
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -291,7 +291,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -303,7 +303,7 @@ class ProfileView extends StatelessWidget {
               style: Utils.kAppPrimaryTextStyle,
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -315,7 +315,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -326,7 +326,7 @@ class ProfileView extends StatelessWidget {
               style: Utils.kAppPrimaryTextStyle,
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
@@ -338,7 +338,7 @@ class ProfileView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 

@@ -44,7 +44,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -56,7 +56,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -74,7 +74,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                       ),
 
                       // space
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
 
@@ -117,7 +117,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                       ),
 
                       // space
-                      SizedBox(
+                      const SizedBox(
                         height: 45.0,
                       ),
 
@@ -135,7 +135,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                                       fontWeight: FontWeight.w800),
                                 ),
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 10.0,
                                 ),
 
@@ -184,7 +184,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                                 ),
 
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 45.0,
                                 ),
 
@@ -197,7 +197,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                                 ),
 
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 10.0,
                                 ),
 
@@ -260,7 +260,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                                       fontWeight: FontWeight.w800),
                                 ),
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 10.0,
                                 ),
 
@@ -284,7 +284,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                                 ),
 
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 45.0,
                                 ),
 
@@ -297,7 +297,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                                 ),
 
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 10.0,
                                 ),
 
@@ -323,7 +323,7 @@ class _ChangeEmailPasswordViewState extends State<ChangeEmailPasswordView> {
                             ),
 
                       // space
-                      SizedBox(
+                      const SizedBox(
                         height: 40.0,
                       ),
 

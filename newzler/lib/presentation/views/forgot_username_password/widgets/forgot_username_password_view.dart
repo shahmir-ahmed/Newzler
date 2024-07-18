@@ -44,7 +44,7 @@ class _ForgotUsernamePasswordViewState
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               // space
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
 
@@ -56,7 +56,7 @@ class _ForgotUsernamePasswordViewState
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
 
@@ -68,7 +68,7 @@ class _ForgotUsernamePasswordViewState
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
 
@@ -86,7 +86,7 @@ class _ForgotUsernamePasswordViewState
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
 
@@ -102,7 +102,7 @@ class _ForgotUsernamePasswordViewState
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 40.0,
                         ),
 
@@ -118,7 +118,7 @@ class _ForgotUsernamePasswordViewState
                           buttonText: 'Recover',
                           buttonWidth: MediaQuery.of(context).size.width,
                           buttonHeight: 65.0,
-                          icon: Icon(Icons.restore_page_outlined),
+                          icon: const Icon(Icons.restore_page_outlined),
                         )
                       ]))
             ])));

@@ -51,8 +51,8 @@ class CustomButton extends StatelessWidget {
                 foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
                 // if bg color present then set no elevation
                 elevation: backgroundColor == null
-                    ? WidgetStatePropertyAll(3.0)
-                    : WidgetStatePropertyAll(0.0),
+                    ? const WidgetStatePropertyAll(3.0)
+                    : const WidgetStatePropertyAll(0.0),
                 // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
               ),
               icon: icon,
@@ -68,7 +68,7 @@ class CustomButton extends StatelessWidget {
                       shadowColor:
                           WidgetStatePropertyAll(Utils.kAppPrimaryColor),
                       foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
-                      elevation: WidgetStatePropertyAll(3.0),
+                      elevation: const WidgetStatePropertyAll(3.0),
                       // fixedSize: buttonWidth!=null ? WidgetStatePropertyAll(ui.Size.fromWidth(buttonWidth!)) : null
                     )
                   // white bg and grey text color = secondary button
@@ -83,7 +83,7 @@ class CustomButton extends StatelessWidget {
                           side: WidgetStatePropertyAll(
                             BorderSide(color: Utils.lightGreyColor2),
                           ),
-                          elevation: WidgetStatePropertyAll(0.0))
+                          elevation: const WidgetStatePropertyAll(0.0))
                       : null,
               // if child present the use the child widget otherwise text is must
               child: child ??
@@ -318,8 +318,8 @@ class NewsInteractionButtons extends StatelessWidget {
       builder: (context) {
         return Container(
           height: 255.0,
-          padding: EdgeInsets.all(30.0),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.all(30.0),
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.0),
                 topRight: Radius.circular(20.0)),
@@ -343,7 +343,7 @@ class NewsInteractionButtons extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
 
@@ -359,14 +359,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                           image: AssetImage('assets/images/like-icon.png'),
                           width: 36.0,
                           height: 36.0,
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -386,14 +386,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image: AssetImage(
                                 'assets/images/smiling-face-with heart-shaped-eyes-icon.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -413,14 +413,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image: AssetImage(
                                 'assets/images/smiling-face-with-open-mouth-icon.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -440,14 +440,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image: AssetImage(
                                 'assets/images/star-struck-icon.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -467,14 +467,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image: AssetImage(
                                 'assets/images/pensive-face-icon.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -494,14 +494,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image: AssetImage(
                                 'assets/images/pouting-face-icon.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -533,8 +533,8 @@ class NewsInteractionButtons extends StatelessWidget {
       builder: (context) {
         return Container(
           height: 255.0,
-          padding: EdgeInsets.all(25.0),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.all(25.0),
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.0),
                 topRight: Radius.circular(20.0)),
@@ -555,7 +555,7 @@ class NewsInteractionButtons extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
 
@@ -571,7 +571,7 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                           image: AssetImage(
                               'assets/images/logos-whatsapp-icon.png'),
                           width: 36.0,
@@ -579,7 +579,7 @@ class NewsInteractionButtons extends StatelessWidget {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -599,14 +599,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image:
                                 AssetImage('assets/images/logos-twitter.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -626,14 +626,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image: AssetImage(
                                 'assets/images/openmoji-youtube.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -653,14 +653,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image:
                                 AssetImage('assets/images/logos-facebook.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -680,13 +680,13 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image: AssetImage('assets/images/gravity-ui.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -706,14 +706,14 @@ class NewsInteractionButtons extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // image icon
-                        Image(
+                        const Image(
                             image:
                                 AssetImage('assets/images/ph-share-light.png'),
                             width: 36.0,
                             height: 36.0),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
 
@@ -744,7 +744,7 @@ class NewsInteractionButtons extends StatelessWidget {
         return Container(
           color: Utils.whiteColor,
           height: 270.0,
-          padding: EdgeInsets.all(25.0),
+          padding: const EdgeInsets.all(25.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -761,7 +761,7 @@ class NewsInteractionButtons extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
 
@@ -774,12 +774,12 @@ class NewsInteractionButtons extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
 
               // buttons row
-              LoginSignupCombinedButtons()
+              const LoginSignupCombinedButtons()
             ],
           ),
         );
@@ -805,7 +805,7 @@ class NewsInteractionButtons extends StatelessWidget {
                     Icons.thumb_up_outlined,
                     color: Utils.whiteColor,
                   )
-                : Icon(
+                : const Icon(
                     Icons.thumb_up_outlined,
                     // color: Colors.black, // by default black
                   )),
@@ -818,7 +818,7 @@ class NewsInteractionButtons extends StatelessWidget {
                     color: Utils.whiteColor,
                   )
                 // black colored default icon
-                : Icon(
+                : const Icon(
                     Icons.bookmark_border,
                     // color: Colors.black, // by default black
                   )
@@ -841,7 +841,7 @@ class NewsInteractionButtons extends StatelessWidget {
                     Icons.copy,
                     color: Utils.whiteColor,
                   )
-                : Icon(
+                : const Icon(
                     Icons.copy,
                     // color: Colors.black, // by default black
                   )),
@@ -856,7 +856,7 @@ class NewsInteractionButtons extends StatelessWidget {
                     Icons.share,
                     color: Utils.whiteColor,
                   )
-                : Icon(
+                : const Icon(
                     Icons.share,
                     // color: Colors.black, // by default black
                   ))
@@ -901,7 +901,7 @@ class NewsCard extends StatelessWidget {
                     // push full coverage screen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => VideoPlayView()),
+                      MaterialPageRoute(builder: (context) => const VideoPlayView()),
                     );
                   }
                 : () {
@@ -909,7 +909,7 @@ class NewsCard extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => NewsDetailsView()),
+                          builder: (context) => const NewsDetailsView()),
                     );
                   }, // if null then nothing will happen if present then the the operation passed will run
             child: Container(
@@ -947,11 +947,11 @@ class NewsCard extends StatelessWidget {
                                     child: Container(
                                       decoration: BoxDecoration(
                                           color: Utils.greyColor2,
-                                          borderRadius: BorderRadius.all(
+                                          borderRadius: const BorderRadius.all(
                                               Radius.circular(10.0))),
-                                      padding: EdgeInsets.symmetric(
+                                      padding: const EdgeInsets.symmetric(
                                           vertical: 5.0, horizontal: 10.0),
-                                      margin: EdgeInsets.all(10.0),
+                                      margin: const EdgeInsets.all(10.0),
                                       child: Text(
                                         videoTime as String,
                                         style: TextStyle(
@@ -961,12 +961,12 @@ class NewsCard extends StatelessWidget {
                                       ),
                                     ),
                                   )
-                                : SizedBox()
+                                : const SizedBox()
                           ])),
           ),
 
           // space
-          SizedBox(
+          const SizedBox(
             height: 30.0,
           ),
 
@@ -976,13 +976,13 @@ class NewsCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // news channel logo
-              CircleAvatar(
+              const CircleAvatar(
                 backgroundImage: AssetImage('assets/images/news-18-logo.png'),
                 radius: 25.0,
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 width: 10.0,
               ),
 
@@ -1006,10 +1006,10 @@ class NewsCard extends StatelessWidget {
                       showTimeNewsChannel
                           ?
                           // space
-                          SizedBox(
+                          const SizedBox(
                               height: 5.0,
                             )
-                          : SizedBox(),
+                          : const SizedBox(),
 
                       showTimeNewsChannel
                           ? Text(
@@ -1017,7 +1017,7 @@ class NewsCard extends StatelessWidget {
                               style: Utils.kAppPrimaryTextStyle.copyWith(
                                   color: Utils.lightGreyColor2, fontSize: 10.0),
                             )
-                          : SizedBox()
+                          : const SizedBox()
                     ],
                   ),
                 ),
@@ -1028,10 +1028,10 @@ class NewsCard extends StatelessWidget {
           showInteractionButtons
               ?
               // space
-              SizedBox(
+              const SizedBox(
                   height: 20.0,
                 )
-              : SizedBox(),
+              : const SizedBox(),
 
           // news interaction buttons
           showInteractionButtons
@@ -1039,7 +1039,7 @@ class NewsCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   bookmarked: bookmarked ?? true,
                 )
-              : SizedBox()
+              : const SizedBox()
         ],
       ),
     );
@@ -1056,14 +1056,14 @@ class AccountOptionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(bottom: 10.0),
+        margin: const EdgeInsets.only(bottom: 10.0),
         // padding: EdgeInsets.all(20.0),
         // decoration: BoxDecoration(
         //     color: Utils.lightBlueColor,
         //     borderRadius: BorderRadius.all(Radius.circular(10.0))),
         child: ListTile(
             minTileHeight: 65.0,
-            shape: BeveledRectangleBorder(
+            shape: const BeveledRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(6.0))),
             tileColor: Utils.lightBlueColor,
             leading:
@@ -1114,11 +1114,11 @@ class BannerImageText extends StatelessWidget {
         text == 'No news has been found'
             ?
             // space
-            SizedBox(
+            const SizedBox(
                 height: 150.0,
               )
             // for other screens
-            : SizedBox(
+            : const SizedBox(
                 height: 50.0,
               ),
 
@@ -1133,11 +1133,11 @@ class BannerImageText extends StatelessWidget {
         text == 'No news has been found'
             ?
             // space
-            SizedBox(
+            const SizedBox(
                 height: 200.0,
               )
             // for other screens
-            : SizedBox(
+            : const SizedBox(
                 height: 60.0,
               ),
 
@@ -1152,7 +1152,7 @@ class BannerImageText extends StatelessWidget {
                         fontWeight: FontWeight.w800,
                         color: textColor ?? Colors.black),
                   )
-                : SizedBox()
+                : const SizedBox()
             : Text(
                 textAlign: TextAlign.center,
                 headingText!,
@@ -1164,10 +1164,10 @@ class BannerImageText extends StatelessWidget {
 
         // space
         subText != null
-            ? SizedBox(
+            ? const SizedBox(
                 height: 10.0,
               )
-            : SizedBox(),
+            : const SizedBox(),
 
         // sub text
         subText != null
@@ -1187,7 +1187,7 @@ class BannerImageText extends StatelessWidget {
                         .copyWith(fontSize: 13, color: Utils.greyColor4),
                     textAlign: TextAlign.center,
                   )
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }
@@ -1216,7 +1216,7 @@ class MyBookmarkNewsTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // color: Colors.amber,
-      margin: EdgeInsets.only(bottom: 25.0),
+      margin: const EdgeInsets.only(bottom: 25.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -1227,9 +1227,9 @@ class MyBookmarkNewsTile extends StatelessWidget {
                   checkedIconColor: Utils.whiteColor,
                   value: checkBoxValue,
                   onChanged: onCheckBoxChanged)
-              : SizedBox(),
+              : const SizedBox(),
           // space
-          longPressed ? SizedBox(width: 15.0) : SizedBox(),
+          longPressed ? const SizedBox(width: 15.0) : const SizedBox(),
           // news image
           Image(
             image: AssetImage(imagePath),
@@ -1238,7 +1238,7 @@ class MyBookmarkNewsTile extends StatelessWidget {
           ),
 
           // space
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           ),
 
@@ -1258,7 +1258,7 @@ class MyBookmarkNewsTile extends StatelessWidget {
                   ),
 
                   // space
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
 
@@ -1301,9 +1301,9 @@ class MyLanguageMyPublisherTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: myLanguageTile != null
-            ? EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 0)
+            ? const EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 0)
             : null,
-        margin: myPublisherTile != null ? EdgeInsets.only(bottom: 40.0) : null,
+        margin: myPublisherTile != null ? const EdgeInsets.only(bottom: 40.0) : null,
         child: myPublisherTile != null
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1316,15 +1316,15 @@ class MyLanguageMyPublisherTile extends StatelessWidget {
                           ? Container(
                               decoration: BoxDecoration(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(23.0)),
+                                    const BorderRadius.all(Radius.circular(23.0)),
                                 color: Utils.lightGreyColor5,
                               ),
                               padding: const EdgeInsets.all(13.0),
+                              width: 50,
+                              height: 50,
                               child: Image(
                                 image: AssetImage(imagePath!),
                               ),
-                              width: 50,
-                              height: 50,
                             )
                           : CircleAvatar(
                               backgroundColor: Utils.lightGreyColor,
@@ -1332,7 +1332,7 @@ class MyLanguageMyPublisherTile extends StatelessWidget {
                               radius: 22,
                             ),
                       // space
-                      SizedBox(
+                      const SizedBox(
                         width: 20.0,
                       ),
 
@@ -1399,7 +1399,7 @@ class MyLanguageMyPublisherTile extends StatelessWidget {
                         ],
                       ),
                       // space
-                      SizedBox(
+                      const SizedBox(
                         height: 5.0,
                       ),
                       // divider
@@ -1409,7 +1409,7 @@ class MyLanguageMyPublisherTile extends StatelessWidget {
                       ),
                     ],
                   )
-                : SizedBox());
+                : const SizedBox());
   }
 }
 
@@ -1535,7 +1535,7 @@ class AddEditProfileImage extends StatelessWidget {
           ),
 
           // space
-          SizedBox(
+          const SizedBox(
             height: 90.0,
           ),
 
@@ -1547,7 +1547,7 @@ class AddEditProfileImage extends StatelessWidget {
                   child:
                       // add profile image screen
                       addImageScreen != null
-                          ? Image(
+                          ? const Image(
                               image: AssetImage(
                                   'assets/images/add-profile-pic.png'),
                               width: 162,
@@ -1555,7 +1555,7 @@ class AddEditProfileImage extends StatelessWidget {
                             )
                           // edit profile image screen
                           : Stack(children: [
-                              Image(
+                              const Image(
                                 image:
                                     AssetImage('assets/images/user-image.png'),
                                 width: 132,
@@ -1568,12 +1568,12 @@ class AddEditProfileImage extends StatelessWidget {
                                   child: CircleAvatar(
                                       radius: 15,
                                       backgroundColor: Utils.whiteColor,
-                                      foregroundImage: AssetImage(
+                                      foregroundImage: const AssetImage(
                                           'assets/images/tabler_edit.png')))
                             ]))),
 
           // space
-          SizedBox(
+          const SizedBox(
             height: 90.0,
           ),
 
@@ -1586,7 +1586,7 @@ class AddEditProfileImage extends StatelessWidget {
                         onPressed: () {
                           // push home screen
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => HomeView()));
+                              builder: (context) => const HomeView()));
                         },
                         primaryButton: true,
                         buttonText: 'Continue',
@@ -1595,7 +1595,7 @@ class AddEditProfileImage extends StatelessWidget {
                       ),
                     ),
                     // space
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
 
@@ -1605,7 +1605,7 @@ class AddEditProfileImage extends StatelessWidget {
                         onPressed: () {
                           // push home screen
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => HomeView()));
+                              builder: (context) => const HomeView()));
                         },
                         secondaryButton: true,
                         buttonText: 'Skip',
@@ -1628,7 +1628,7 @@ class AddEditProfileImage extends StatelessWidget {
                       ),
                     ),
                     // space
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
 

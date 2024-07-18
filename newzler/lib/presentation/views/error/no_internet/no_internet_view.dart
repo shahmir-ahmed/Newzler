@@ -22,7 +22,7 @@ class NoInternetView extends StatelessWidget {
           subText: 'Please check your internet connection and try again.',
         ),
         // space
-        SizedBox(
+        const SizedBox(
           height: 80.0,
         ),
         Padding(

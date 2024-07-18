@@ -103,7 +103,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      contentPadding: EdgeInsets.symmetric(horizontal: 26.0, vertical: 35.0),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 35.0),
       backgroundColor: Utils.whiteColor,
       actionsAlignment: MainAxisAlignment.spaceBetween,
       // title: Text("AlertDialog"),
@@ -133,7 +133,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
     super.initState();
 
     // after 2 secs set is loading as false
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _isLoading = false;
       });
@@ -194,12 +194,12 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 40.0,
                         ),
 
                         // combined buttons
-                        LoginSignupCombinedButtons()
+                        const LoginSignupCombinedButtons()
                       ]))
                   :
                   // bookmarks empty screen
@@ -224,7 +224,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
                             Row(
                               children: [
                                 // news icon
-                                Image(
+                                const Image(
                                   image:
                                       AssetImage('assets/images/news-icon.png'),
                                   width: 27,
@@ -232,7 +232,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
                                 ),
 
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   width: 5.0,
                                 ),
 
@@ -247,7 +247,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
                             ),
 
                             // space
-                            SizedBox(
+                            const SizedBox(
                               height: 20.0,
                             ),
 
@@ -256,7 +256,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
                               children: bookmarkedNews.map((bookmarkedNewsMap) {
                                 // show not deleted news
                                 return bookmarkedNewsMap['deleted'] == true
-                                    ? SizedBox()
+                                    ? const SizedBox()
                                     : GestureDetector(
                                         // already enabled then not enable again
                                         onLongPress: _longPressed
@@ -299,7 +299,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
                               }).toList(),
                             ),
                             // space
-                            SizedBox(
+                            const SizedBox(
                               height: 10.0,
                             ),
                             // loader
@@ -313,7 +313,7 @@ class _MyBookmarkViewState extends State<MyBookmarkView> {
                                       strokeWidth: 5,
                                     ),
                                   )
-                                : SizedBox()
+                                : const SizedBox()
                           ],
                         ))
     ]));

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:newzler/presentation/views/home/home_view.dart';
-import 'package:newzler/presentation/views/login/signup_view.dart';
-import 'package:newzler/presentation/views/login/verify_email_view.dart';
-import 'package:newzler/presentation/views/onboarding/splash_screen_view.dart';
 
 void main() {
+  // Enable only potrait mode in app
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
@@ -13,10 +14,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Newzler',
       // home: const SplashScreenView(),
-      home: const HomeView(),
+      home: HomeView(),
       // home: SignupView(changeScreenMethod: (){}, backButton: false,),
     );
   }

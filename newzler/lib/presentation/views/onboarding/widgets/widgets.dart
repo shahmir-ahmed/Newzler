@@ -17,11 +17,11 @@ class SocialLoginButton extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
           backgroundColor: WidgetStatePropertyAll(Utils.whiteColor),
-          elevation: WidgetStatePropertyAll(0.0),
+          elevation: const WidgetStatePropertyAll(0.0),
           shape: WidgetStatePropertyAll(RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
               side: BorderSide(color: Utils.lightGreyColor))),
-          minimumSize: WidgetStatePropertyAll(Size(100.0, 60.0)),
+          minimumSize: const WidgetStatePropertyAll(Size(100.0, 60.0)),
           overlayColor: WidgetStatePropertyAll(Utils.whiteColor)),
       child: Image(image: iconImage, width: 30, height: 30),
     );

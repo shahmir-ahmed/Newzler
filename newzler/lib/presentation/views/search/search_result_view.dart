@@ -45,7 +45,7 @@ class _SearchResultViewState extends State<SearchResultView> {
     // TODO: implement initState
     super.initState();
     // set is loading to false after 2 secs
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _isLoading = false;
       });
@@ -96,7 +96,7 @@ class _SearchResultViewState extends State<SearchResultView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 20.0,
                         ),
 
@@ -113,13 +113,13 @@ class _SearchResultViewState extends State<SearchResultView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 20.0,
                         ),
 
                         // buttons
                         // combined buttons
-                        LoginSignupCombinedButtons()
+                        const LoginSignupCombinedButtons()
                       ],
                     )
                   :

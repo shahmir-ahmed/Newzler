@@ -143,7 +143,7 @@ class MoreView extends StatelessWidget {
               //  not logged in
               isNotLoggedIn != null
                   // combined button
-                  ? LoginSignupCombinedButtons()
+                  ? const LoginSignupCombinedButtons()
                   // logged in
                   // user details
                   : Row(
@@ -159,7 +159,7 @@ class MoreView extends StatelessWidget {
                                       AddEditProfileImage.editImageScreen()),
                             );
                           },
-                          child: Image(
+                          child: const Image(
                             image: AssetImage('assets/images/user-icon.png'),
                             width: 70,
                             height: 70,
@@ -167,7 +167,7 @@ class MoreView extends StatelessWidget {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           width: 20.0,
                         ),
 
@@ -186,7 +186,8 @@ class MoreView extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ProfileView()),
+                                          builder: (context) =>
+                                              const ProfileView()),
                                     );
                                   },
                                   child: Text(
@@ -198,7 +199,7 @@ class MoreView extends StatelessWidget {
                                 ),
 
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   width: 10.0,
                                 ),
 
@@ -208,10 +209,11 @@ class MoreView extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ProfileView()),
+                                          builder: (context) =>
+                                              const ProfileView()),
                                     );
                                   },
-                                  child: Image(
+                                  child: const Image(
                                     image: AssetImage(
                                         'assets/images/goto-icon.png'),
                                     width: 20,
@@ -222,7 +224,7 @@ class MoreView extends StatelessWidget {
                             ),
 
                             // space
-                            SizedBox(
+                            const SizedBox(
                               height: 4.0,
                             ),
 
@@ -256,8 +258,8 @@ class MoreView extends StatelessWidget {
 
         // if not logged in then not show divider
         isNotLoggedIn != null
-            ? SizedBox()
-            : Divider(
+            ? const SizedBox()
+            : const Divider(
                 height: 2.0,
               ),
 
@@ -300,7 +302,8 @@ class MoreView extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => UnderMaintenanceView()),
+                                  builder: (context) =>
+                                      const UnderMaintenanceView()),
                             );
                           }
                           // theme screen
@@ -309,7 +312,7 @@ class MoreView extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => UpdateAppView()),
+                                  builder: (context) => const UpdateAppView()),
                             );
                           }
                           // my publisher screen
@@ -345,7 +348,7 @@ class MoreView extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MyCategoryView()),
+                                  builder: (context) => const MyCategoryView()),
                             );
                           }
                           // live score screen
@@ -355,7 +358,8 @@ class MoreView extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LiveCricketView()),
+                                  builder: (context) =>
+                                      const LiveCricketView()),
                             );
                           }
                           // change password screen
@@ -377,7 +381,7 @@ class MoreView extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => NoInternetView()),
+                                  builder: (context) => const NoInternetView()),
                             );
                           }
                         },
@@ -386,7 +390,11 @@ class MoreView extends StatelessWidget {
                             option: accountOptionMap['option'] as String),
                       );
                     }).toList()),
-        )
+        ),
+        // space for floating bottom bar
+        const SizedBox(
+          height: 80.0,
+        ),
       ],
     ));
   }

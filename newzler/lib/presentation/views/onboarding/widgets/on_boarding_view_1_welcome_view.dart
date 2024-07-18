@@ -39,7 +39,7 @@ class OnBoardingView1WelcomeView extends StatelessWidget {
     return SafeArea(
         child: Container(
       // color: Colors.amber,
-      padding: EdgeInsets.all(30.0),
+      padding: const EdgeInsets.all(30.0),
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
@@ -55,7 +55,7 @@ class OnBoardingView1WelcomeView extends StatelessWidget {
           ),
 
           // space
-          SizedBox(
+          const SizedBox(
             height: 80.0,
           ),
 
@@ -77,7 +77,7 @@ class OnBoardingView1WelcomeView extends StatelessWidget {
                 ),
 
                 // space
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
 
@@ -89,7 +89,7 @@ class OnBoardingView1WelcomeView extends StatelessWidget {
                 ),
 
                 // space
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/video/video_play_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class RecommendedView extends StatelessWidget {
@@ -33,7 +32,7 @@ class RecommendedView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
 

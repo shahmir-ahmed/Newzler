@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:newzler/configs/utils.dart';
 import 'package:newzler/presentation/views/recommended/recommended_view.dart';
-import 'package:newzler/presentation/views/video/video_play_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class VideoTabView extends StatelessWidget {
@@ -43,7 +41,7 @@ class VideoTabView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
 
@@ -54,8 +52,8 @@ class VideoTabView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [0, 1, 2, 3, 4].map((i) {
                     return Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 0.0, horizontal: 5.0),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 0.0, horizontal: 5.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -66,7 +64,7 @@ class VideoTabView extends StatelessWidget {
                             height: 50,
                           ),
                           // space
-                          SizedBox(
+                          const SizedBox(
                             height: 3.0,
                           ),
                           // channel name
@@ -83,7 +81,7 @@ class VideoTabView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
 
@@ -112,7 +110,7 @@ class VideoTabView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
 
@@ -134,7 +132,7 @@ class VideoTabView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
 
@@ -145,13 +143,19 @@ class VideoTabView extends StatelessWidget {
                   // push full coverage screen
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => RecommendedView()),
+                    MaterialPageRoute(
+                        builder: (context) => const RecommendedView()),
                   );
                 },
                 buttonText: 'View all',
                 buttonWidth: MediaQuery.of(context).size.width - 20,
                 buttonHeight: 50.0,
-              )
+              ),
+
+              // space for floating bottom bar
+              const SizedBox(
+                height: 90.0,
+              ),
             ])));
   }
 }

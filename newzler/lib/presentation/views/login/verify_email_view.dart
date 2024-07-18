@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
-import 'package:newzler/presentation/views/home/home_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 import 'package:floating_snackbar/floating_snackbar.dart';
 
@@ -124,7 +123,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               // space
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
 
@@ -136,7 +135,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
 
@@ -155,7 +154,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 25.0,
                         ),
 
@@ -200,7 +199,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                                 : null),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 25.0,
                         ),
 
@@ -212,7 +211,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                         ),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 30.0,
                         ),
 
@@ -243,7 +242,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                                 : null),
 
                         // space
-                        SizedBox(
+                        const SizedBox(
                           height: 20.0,
                         ),
 

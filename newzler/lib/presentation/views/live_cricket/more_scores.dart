@@ -14,9 +14,9 @@ class MoreScores extends StatelessWidget {
   }
 
   _getBody(context) {
-    return SafeArea(
+    return const SafeArea(
         child: Padding(
-      padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
+      padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
       // slider row
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,

@@ -426,7 +426,7 @@ class _EditMobileBirthdayGenderCountryViewState
           ),
 
           // space
-          SizedBox(
+          const SizedBox(
             height: 30.0,
           ),
 
@@ -444,7 +444,7 @@ class _EditMobileBirthdayGenderCountryViewState
                   ),
                 ),
                 // space
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
 
@@ -459,7 +459,7 @@ class _EditMobileBirthdayGenderCountryViewState
                               style: Utils.kAppPrimaryTextStyle,
                             ),
                           ),
-                          VerticalDivider(
+                          const VerticalDivider(
                             color: Colors.black,
                             width: 4.0,
                           ),
@@ -503,7 +503,7 @@ class _EditMobileBirthdayGenderCountryViewState
                                   );
                                 }).toList(),
                               )),
-                              SizedBox(
+                              const SizedBox(
                                 width: 40.0,
                               ),
                               Expanded(
@@ -535,7 +535,7 @@ class _EditMobileBirthdayGenderCountryViewState
                                       );
                                     }).toList(),
                                   )),
-                              SizedBox(
+                              const SizedBox(
                                 width: 30.0,
                               ),
                               Expanded(
@@ -622,13 +622,13 @@ class _EditMobileBirthdayGenderCountryViewState
                                       );
                                     }).toList(),
                                   )
-                                : SizedBox()
+                                : const SizedBox()
               ],
             ),
           ),
 
           // space
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
 

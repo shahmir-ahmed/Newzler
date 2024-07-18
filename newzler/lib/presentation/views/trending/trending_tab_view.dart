@@ -30,7 +30,7 @@ class TrendingTabView extends StatelessWidget {
             }).toList()),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
 
@@ -41,13 +41,18 @@ class TrendingTabView extends StatelessWidget {
                 // push full coverage screen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FullCoverageView()),
+                  MaterialPageRoute(builder: (context) => const FullCoverageView()),
                 );
               },
               buttonText: 'View more',
               buttonWidth: MediaQuery.of(context).size.width - 20,
               buttonHeight: 50.0,
-            )
+            ),
+
+            // space for floating bottom bar
+            const SizedBox(
+                height: 90.0,
+              ),
           ],
         ),
       ),

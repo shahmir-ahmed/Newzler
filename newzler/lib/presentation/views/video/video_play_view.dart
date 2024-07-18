@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 
@@ -28,7 +27,7 @@ class VideoPlayView extends StatelessWidget {
             alignment: AlignmentDirectional.center,
             children: [
               // image
-              Image(
+              const Image(
                 image: AssetImage('assets/images/video-playing-banner.png'),
                 fit: BoxFit.cover,
               ),
@@ -101,7 +100,7 @@ class VideoPlayView extends StatelessWidget {
         ),
         // below video body
         Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -114,7 +113,7 @@ class VideoPlayView extends StatelessWidget {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 5.0,
               ),
 
@@ -137,16 +136,16 @@ class VideoPlayView extends StatelessWidget {
         ),
 
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           child: Row(
             children: [
               // logo
-              CircleAvatar(
+              const CircleAvatar(
                   backgroundImage:
                       AssetImage('assets/images/news-18-logo.png')),
 
               // space
-              SizedBox(
+              const SizedBox(
                 width: 13.0,
               ),
 
@@ -181,17 +180,17 @@ class VideoPlayView extends StatelessWidget {
                     Container(
                       width: 140,
                       height: 81,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           borderRadius:
                               BorderRadius.all(Radius.circular(10.0))),
-                      child: Image(
+                      child: const Image(
                         image: AssetImage('assets/images/more-video-image.png'),
                         fit: BoxFit.cover,
                       ),
                     ),
 
                     // space
-                    SizedBox(
+                    const SizedBox(
                       width: 15.0,
                     ),
 
@@ -209,7 +208,7 @@ class VideoPlayView extends StatelessWidget {
                           ),
 
                           // space
-                          SizedBox(
+                          const SizedBox(
                             height: 20.0,
                           ),
 

@@ -4,25 +4,25 @@ import 'package:google_fonts/google_fonts.dart';
 class Utils {
   // colors
   static Color whiteColor = Colors.white;
-  static Color kAppPrimaryColor = Color(0xff209CEE);
-  static Color kAppSecondaryColor = Color(0xff27272E);
+  static Color kAppPrimaryColor = const Color(0xff209CEE);
+  static Color kAppSecondaryColor = const Color(0xff27272E);
   // static Color lightGreyColor = Color.fromARGB(255, 114, 114, 114);
-  static Color lightGreyColor = Color(0xff747474);
-  static Color lightGreyColor2 = Color(0xffCA8A8A8);
-  static Color lightGreyColor3 = Color(0xffCCCCCC);
-  static Color lightGreyColor4 = Color(0xffF2F2F2);
-  static Color lightGreyColor5 = Color(0xffD9D9D9);
-  static Color lightGreyColor6 = Color(0xff8C8C8C);
-  static Color lightGreyColor7 = Color(0xffF1F1F1);
-  static Color lightBlueColor = Color(0xffF7F8FA);
-  static Color greyColor = Color(0xff4A4A4A);
-  static Color greyColor2 = Color(0xff707176);
-  static Color greyColor3 = Color(0xff2C2C2C);
-  static Color greyColor4 = Color(0xff808080);
-  static Color greyColor5 = Color(0xff7B7B7B);
-  static Color greyColor6 = Color(0xff626262);
-  static Color greyColor7 = Color(0xff565656);
-  static Color greyColor8 = Color(0xff797979);
+  static Color lightGreyColor = const Color(0xff747474);
+  static Color lightGreyColor2 = const Color(0xffCA8A8A8);
+  static Color lightGreyColor3 = const Color(0xffCCCCCC);
+  static Color lightGreyColor4 = const Color(0xffF2F2F2);
+  static Color lightGreyColor5 = const Color(0xffD9D9D9);
+  static Color lightGreyColor6 = const Color(0xff8C8C8C);
+  static Color lightGreyColor7 = const Color(0xffF1F1F1);
+  static Color lightBlueColor = const Color(0xffF7F8FA);
+  static Color greyColor = const Color(0xff4A4A4A);
+  static Color greyColor2 = const Color(0xff707176);
+  static Color greyColor3 = const Color(0xff2C2C2C);
+  static Color greyColor4 = const Color(0xff808080);
+  static Color greyColor5 = const Color(0xff7B7B7B);
+  static Color greyColor6 = const Color(0xff626262);
+  static Color greyColor7 = const Color(0xff565656);
+  static Color greyColor8 = const Color(0xff797979);
   static Color transparentColor = Colors.white.withOpacity(0.0);
 
   // text style
@@ -65,7 +65,7 @@ class Utils {
                 padding: const EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
                     onTap: onCrossPressed,
-                    child: Icon(
+                    child: const Icon(
                       Icons.cancel_outlined,
                       size: 25.0,
                     )),
@@ -102,7 +102,7 @@ class Utils {
           padding: const EdgeInsets.only(right: 20.0),
           child: GestureDetector(
               onTap: onDeletePressed,
-              child: Icon(
+              child: const Icon(
                 Icons.delete,
                 size: 30.0,
                 color: Colors.red,
@@ -143,7 +143,7 @@ class Utils {
             Container(
               height: 55.0,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                 color: Utils.lightGreyColor4,
               ),
               child: Center(
@@ -157,7 +157,7 @@ class Utils {
                           .copyWith(color: Utils.lightGreyColor),
                       border: InputBorder.none,
                       fillColor: Utils.greyColor,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.search,
                         size: 35.0,
                       )),

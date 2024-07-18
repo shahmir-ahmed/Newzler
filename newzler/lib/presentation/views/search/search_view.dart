@@ -68,7 +68,7 @@ class SearchView extends StatelessWidget {
                       .copyWith(fontWeight: FontWeight.w800),
                 ),
                 // delete button
-                Image(
+                const Image(
                   image: AssetImage('assets/images/delete-icon.png'),
                   width: 24.0,
                   height: 24.0,
@@ -77,7 +77,7 @@ class SearchView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
 
@@ -101,12 +101,12 @@ class SearchView extends StatelessWidget {
                   },
                   child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                         color: Utils.lightGreyColor4,
                       ),
-                      margin: EdgeInsets.only(right: 25.0),
+                      margin: const EdgeInsets.only(right: 25.0),
                       padding:
-                          EdgeInsets.symmetric(vertical: 5.0, horizontal: 15.0),
+                          const EdgeInsets.symmetric(vertical: 5.0, horizontal: 15.0),
                       child: Text(
                         name,
                         style: Utils.kAppPrimaryTextStyle.copyWith(
@@ -119,7 +119,7 @@ class SearchView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 50.0,
             ),
 
@@ -127,14 +127,14 @@ class SearchView extends StatelessWidget {
             Row(
               children: [
                 // icon
-                Image(
+                const Image(
                   image: AssetImage('assets/images/trending-light.png'),
                   width: 26.0,
                   height: 26.0,
                 ),
 
                 // space
-                SizedBox(
+                const SizedBox(
                   width: 10.0,
                 ),
 
@@ -148,7 +148,7 @@ class SearchView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
 
@@ -157,7 +157,7 @@ class SearchView extends StatelessWidget {
                 children:
                     ['Anbazhangan', 'Chanels', 'Malayalam'].map((trendingName) {
               return Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
+                margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -179,7 +179,12 @@ class SearchView extends StatelessWidget {
                   ],
                 ),
               );
-            }).toList())
+            }).toList()),
+
+            // space for floating bottom bar
+              const SizedBox(
+                height: 80.0,
+              ),
           ],
         ),
       )

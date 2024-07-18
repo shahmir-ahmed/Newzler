@@ -12,15 +12,15 @@ class RedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
+      style: ButtonStyle(
+          backgroundColor: const WidgetStatePropertyAll(Colors.red),
+          foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
+          elevation: const WidgetStatePropertyAll(15.0),
+          shadowColor: const WidgetStatePropertyAll(Colors.red)),
       child: Text(
         buttonText,
         style: Utils.kAppPrimaryTextStyle.copyWith(fontSize: 18.0),
       ),
-      style: ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll(Colors.red),
-          foregroundColor: WidgetStatePropertyAll(Utils.whiteColor),
-          elevation: WidgetStatePropertyAll(15.0),
-          shadowColor: WidgetStatePropertyAll(Colors.red)),
     );
   }
 }

@@ -23,7 +23,7 @@ class UnderMaintenanceView extends StatelessWidget {
           smallWidthSubText: true,
         ),
         // space
-        SizedBox(
+        const SizedBox(
           height: 80.0,
         ),
         Padding(

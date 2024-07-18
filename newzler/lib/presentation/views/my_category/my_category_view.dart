@@ -113,7 +113,7 @@ class _MyCategoryViewState extends State<MyCategoryView> {
         color: Utils.lightGreyColor4,
       ),
       // space
-      SizedBox(
+      const SizedBox(
         height: 20.0,
       ),
       // text heading
@@ -128,7 +128,7 @@ class _MyCategoryViewState extends State<MyCategoryView> {
                   .copyWith(fontWeight: FontWeight.w800, fontSize: 15.0),
             ),
             // space
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             // grid category items
@@ -156,9 +156,9 @@ class _MyCategoryViewState extends State<MyCategoryView> {
                           decoration: BoxDecoration(
                               color: Utils.lightBlueColor,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0))),
+                                  const BorderRadius.all(Radius.circular(10.0))),
                           // height: 20.0,
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -187,7 +187,7 @@ class _MyCategoryViewState extends State<MyCategoryView> {
                                       color: Utils.kAppPrimaryColor,
                                       size: 24,
                                     )
-                                  : Icon(
+                                  : const Icon(
                                       Icons.star_outline,
                                       size: 24,
                                     ),
@@ -199,7 +199,7 @@ class _MyCategoryViewState extends State<MyCategoryView> {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 

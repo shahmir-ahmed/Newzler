@@ -31,7 +31,7 @@ class LiveCricketView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 // live icon
-                Image(
+                const Image(
                   image: AssetImage('assets/images/live-icon.png'),
                   width: 26,
                   height: 26,
@@ -47,7 +47,7 @@ class LiveCricketView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
 
@@ -59,7 +59,7 @@ class LiveCricketView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
 
@@ -81,7 +81,7 @@ class LiveCricketView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 // column team 1 score
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     // flag
@@ -92,7 +92,7 @@ class LiveCricketView extends StatelessWidget {
                     ),
 
                     // space
-                    const SizedBox(
+                    SizedBox(
                       height: 5.0,
                     ),
 
@@ -103,7 +103,7 @@ class LiveCricketView extends StatelessWidget {
                     ),
 
                     // space
-                    const SizedBox(
+                    SizedBox(
                       height: 2.0,
                     ),
 
@@ -117,8 +117,8 @@ class LiveCricketView extends StatelessWidget {
 
                 // v/s container
                 Container(
-                  padding: EdgeInsets.only(top: 20.0),
-                  child: Text(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: const Text(
                     'V/S',
                     style:
                         TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
@@ -127,7 +127,7 @@ class LiveCricketView extends StatelessWidget {
 
                 // second team score column
 
-                Column(
+                const Column(
                   children: [
                     // flag
                     Image(
@@ -137,7 +137,7 @@ class LiveCricketView extends StatelessWidget {
                     ),
 
                     // space
-                    const SizedBox(
+                    SizedBox(
                       height: 5.0,
                     ),
 
@@ -148,7 +148,7 @@ class LiveCricketView extends StatelessWidget {
                     ),
 
                     // space
-                    const SizedBox(
+                    SizedBox(
                       height: 2.0,
                     ),
 
@@ -163,7 +163,7 @@ class LiveCricketView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -182,7 +182,7 @@ class LiveCricketView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -196,7 +196,7 @@ class LiveCricketView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
 
@@ -205,14 +205,14 @@ class LiveCricketView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 // image
-                Image(
+                const Image(
                   image: AssetImage('assets/images/Ellipse 9.png'),
                   width: 62,
                   height: 62,
                 ),
 
                 // space
-                SizedBox(
+                const SizedBox(
                   width: 10.0,
                 ),
 
@@ -239,7 +239,7 @@ class LiveCricketView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 60.0,
             ),
 
@@ -252,7 +252,7 @@ class LiveCricketView extends StatelessWidget {
                     // push more scores screen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MoreScores()),
+                      MaterialPageRoute(builder: (context) => const MoreScores()),
                     );
                   },
                   primaryButton: true,
@@ -264,7 +264,7 @@ class LiveCricketView extends StatelessWidget {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
 
@@ -280,7 +280,7 @@ class LiveCricketView extends StatelessWidget {
                       color: Utils.greyColor8),
                 ),
                 // space
-                SizedBox(
+                const SizedBox(
                   width: 4.0,
                 ),
                 Text(

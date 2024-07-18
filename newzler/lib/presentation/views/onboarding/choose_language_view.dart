@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newzler/configs/utils.dart';
 import 'package:newzler/presentation/views/login/authentication_wrapper.dart';
-import 'package:newzler/presentation/views/login/login_view.dart';
 import 'package:newzler/presentation/views/widgets/widgets.dart';
 
 class ChooseLanguageView extends StatefulWidget {
@@ -70,17 +69,17 @@ class _ChooseLanguageViewState extends State<ChooseLanguageView> {
         child: Column(
           children: [
             // space
-            SizedBox(
+            const SizedBox(
               height: 50.0,
             ),
 
             // image
-            Image(
+            const Image(
                 image: AssetImage(
                     'assets/images/choose-language-screen-banner.png')),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -94,14 +93,14 @@ class _ChooseLanguageViewState extends State<ChooseLanguageView> {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
 
             // dropdown
             Container(
               width: MediaQuery.of(context).size.width - 100,
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 7.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 7.0),
               decoration: BoxDecoration(
                   border: Border.all(color: Utils.lightGreyColor2),
                   borderRadius: BorderRadius.circular(30.0)),
@@ -148,8 +147,8 @@ class _ChooseLanguageViewState extends State<ChooseLanguageView> {
             ),
 
             showChooseLanguageError
-                ? Padding(
-                    padding: const EdgeInsets.only(left: 50.0),
+                ? const Padding(
+                    padding: EdgeInsets.only(left: 50.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -161,10 +160,10 @@ class _ChooseLanguageViewState extends State<ChooseLanguageView> {
                       ],
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 180.0,
             ),
 

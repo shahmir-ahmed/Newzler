@@ -9,7 +9,7 @@ class SplashScreenView extends StatelessWidget {
   // pop splash screen and push onboarding screen 1 in future
   _futurePopAndPush(context) {
     // after 4 seconds pop this splash screen and push on boarding screen 1
-    Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 4), () {
       // pop
       Navigator.pop(context);
       // push
@@ -20,7 +20,7 @@ class SplashScreenView extends StatelessWidget {
                     Navigator.pop(context);
                     // push
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => OnBoardingView2()));
+                        builder: (context) => const OnBoardingView2()));
                   })));
     });
   }
@@ -45,7 +45,7 @@ class SplashScreenView extends StatelessWidget {
           Container(
             // margin: EdgeInsets.only(bottom: 10.0),
             // color: Colors.amber,
-            padding: EdgeInsets.symmetric(vertical: 40.0),
+            padding: const EdgeInsets.symmetric(vertical: 40.0),
             height: MediaQuery.of(context).size.height - 260,
             width: MediaQuery.of(context).size.width,
             child: Column(
@@ -53,7 +53,7 @@ class SplashScreenView extends StatelessWidget {
               children: [
                 // n letter image
                 Container(
-                    child: Image(
+                    child: const Image(
                   image: AssetImage('assets/images/letter-n.png'),
                   width: 170.0,
                   height: 170.0,
@@ -61,7 +61,7 @@ class SplashScreenView extends StatelessWidget {
 
                 // Newzler text
                 Container(
-                  margin: EdgeInsets.only(bottom: 55.0),
+                  margin: const EdgeInsets.only(bottom: 55.0),
                   child: Text('Newzler',
                       style: Utils.kAppPrimaryTextStyle.copyWith(
                           fontWeight: FontWeight.w600, fontSize: 36.0)),
@@ -69,7 +69,7 @@ class SplashScreenView extends StatelessWidget {
 
                 // loader
                 Container(
-                  padding: EdgeInsets.only(bottom: 30.0),
+                  padding: const EdgeInsets.only(bottom: 30.0),
                   child: CircularProgressIndicator(
                     color: Utils.kAppPrimaryColor,
                     strokeWidth: 3.5,

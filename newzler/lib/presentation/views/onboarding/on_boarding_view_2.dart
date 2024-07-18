@@ -76,7 +76,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
     return SafeArea(
         child: Container(
             // color: Colors.amber,
-            padding: EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(30.0),
             width: MediaQuery.of(context).size.width,
             child: Column(children: [
               // skip text
@@ -101,7 +101,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
 
@@ -122,7 +122,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
                     builder: (BuildContext context) {
                       return Container(
                           width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
                           // decoration: BoxDecoration(color: Colors.amber),
                           child: Column(
                             children: [
@@ -132,7 +132,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
                                   // width: 300.0,
                                   child: Image(image: AssetImage(imgList[i]))),
                               // space
-                              SizedBox(
+                              const SizedBox(
                                 height: 50.0,
                               ),
                               // text
@@ -152,7 +152,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
 
@@ -166,7 +166,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
                           width: _current == entry.key ? 23.0 : 7.0,
                           // width: 7.0,
                           height: 7.0,
-                          margin: EdgeInsets.symmetric(
+                          margin: const EdgeInsets.symmetric(
                               vertical: 8.0, horizontal: 4.0),
                           decoration: _current == entry.key
                               ? BoxDecoration(
@@ -180,7 +180,7 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
 
@@ -192,14 +192,14 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
                   popAndPushWelcomeScreen();
                 },
                 buttonText: 'Continue with Email',
-                icon: Icon(Icons.mail),
+                icon: const Icon(Icons.mail),
                 buttonWidth: MediaQuery.of(context).size.width - 40,
                 buttonHeight: 60.0,
                 backgroundColor: Utils.kAppSecondaryColor
               ),
 
               // space
-              SizedBox(
+              const SizedBox(
                 height: 45.0,
               ),
 
@@ -214,19 +214,19 @@ class _OnBoardingView2State extends State<OnBoardingView2> {
                         // pop screen and push welcome screen
                         popAndPushWelcomeScreen();
                       },
-                      iconImage: AssetImage('assets/images/fb-logo.png')),
+                      iconImage: const AssetImage('assets/images/fb-logo.png')),
                   SocialLoginButton(
                       onPressed: () {
                         // pop screen and push welcome screen
                         popAndPushWelcomeScreen();
                       },
-                      iconImage: AssetImage('assets/images/google-logo.png')),
+                      iconImage: const AssetImage('assets/images/google-logo.png')),
                   SocialLoginButton(
                       onPressed: () {
                         // pop screen and push welcome screen
                         popAndPushWelcomeScreen();
                       },
-                      iconImage: AssetImage('assets/images/twitter-logo.png')),
+                      iconImage: const AssetImage('assets/images/twitter-logo.png')),
                 ],
               )
             ])));

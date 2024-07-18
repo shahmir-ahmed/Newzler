@@ -42,7 +42,7 @@ class _HomeTabState extends State<HomeTab> {
       labelColor: Utils.kAppPrimaryColor,
       indicatorColor: Utils.kAppPrimaryColor,
       indicatorWeight: 5.0,
-      indicatorPadding: EdgeInsets.all(5.0),
+      indicatorPadding: const EdgeInsets.all(5.0),
       // indicator: ShapeDecoration(
       //     shape: RoundedRectangleBorder(
       //         borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -108,7 +108,7 @@ class _HomeTabState extends State<HomeTab> {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 15.0, horizontal: 30.0),
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
@@ -129,7 +129,7 @@ class _HomeTabState extends State<HomeTab> {
                                           '${carouselTextList[0]['news_channel_logo']}'),
                                     ),
                                     // space
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 10.0,
                                     ),
                                     Column(
@@ -182,7 +182,7 @@ class _HomeTabState extends State<HomeTab> {
                                   ],
                                 ),
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 30.0,
                                 ),
                                 // news headline title
@@ -192,7 +192,7 @@ class _HomeTabState extends State<HomeTab> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              NewsDetailsView()),
+                                              const NewsDetailsView()),
                                     );
                                   },
                                   child: Text(
@@ -203,7 +203,7 @@ class _HomeTabState extends State<HomeTab> {
                                 ),
 
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 30.0,
                                 ),
 
@@ -215,7 +215,7 @@ class _HomeTabState extends State<HomeTab> {
                                 ),
 
                                 // space
-                                SizedBox(
+                                const SizedBox(
                                   height: 30.0,
                                 ),
 
@@ -239,9 +239,10 @@ class _HomeTabState extends State<HomeTab> {
                                                     : 7.0,
                                                 // width: 7.0,
                                                 height: 7.0,
-                                                margin: EdgeInsets.symmetric(
-                                                    vertical: 8.0,
-                                                    horizontal: 4.0),
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 8.0,
+                                                        horizontal: 4.0),
                                                 decoration: _current ==
                                                         entry.key
                                                     ? BoxDecoration(
@@ -257,13 +258,13 @@ class _HomeTabState extends State<HomeTab> {
                                       }).toList(),
                                     ),
                                     // space
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 60.0,
                                     ),
                                     // view all text in row
                                     Column(
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 15.0,
                                         ),
                                         Text('View all ->',
@@ -301,7 +302,7 @@ class _HomeTabState extends State<HomeTab> {
               ],
             ),
             // trending section
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -322,7 +323,7 @@ class _HomeTabState extends State<HomeTab> {
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -337,10 +338,11 @@ class _HomeTabState extends State<HomeTab> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(3.0)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(3.0)),
                           color: Utils.lightGreyColor4,
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             vertical: 15.0, horizontal: 30.0),
                         child: Text(
                           'Trending-${i}',
@@ -348,7 +350,7 @@ class _HomeTabState extends State<HomeTab> {
                               .copyWith(fontWeight: FontWeight.w800),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20.0,
                       ),
                     ],
@@ -358,7 +360,7 @@ class _HomeTabState extends State<HomeTab> {
             ),
 
             // space
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
 
@@ -381,11 +383,11 @@ class _HomeTabState extends State<HomeTab> {
                             fontSize: 18.0, fontWeight: FontWeight.w800),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     // image
-                    Center(
+                    const Center(
                       child: SizedBox(
                         width: 390,
                         height: 116,
@@ -436,7 +438,11 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                       */
                   ),
-            )
+            ),
+            // space
+            const SizedBox(
+              height: 80.0,
+            ),
           ],
         ),
       ),
