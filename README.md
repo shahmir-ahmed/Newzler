@@ -2,4 +2,4 @@
  UI of News App made in Flutter
 
 ## App User Interface
-<img src="ss.png"/>
+<img src="https://github.com/shahmir-ahmed/Newzler/blob/main/newzler/assets/images/ss.png"/>
